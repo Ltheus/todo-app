@@ -43,7 +43,6 @@ input[type="text"] {
   font-weight: 300;
   font-family: inherit;
   background-color: #282828;
-  cursor: pointer;
   transition: border-color 0.25s;
 }
 input[type="text"]:hover {
@@ -69,7 +68,7 @@ button:hover {
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: transparent;
 }
 
 li {

@@ -1,34 +1,34 @@
 import "./App.css";
-import { FaTrash } from "react-icons/fa";
-
+import { useState } from "react";
+import { ListContent } from "./components/ListContent/ListContent";
+// import { ListForm } from "./components/ListForm/ListForm";
 
 function App() {
+  const [items, setItems] = useState([
+    {
+      id: 1,
+      text: "Item 1",
+      isCompleted: false,
+    },
+    {
+      id: 2,
+      text: "Item 2",
+      isCompleted: false,
+    },
+    {
+      id: 3,
+      text: "Item 3",
+      isCompleted: false,
+    },
+  ]);
+
   return (
     <>
+      <h1>To-do List</h1>
       <div>
-        <h1> To-do List </h1>
-      </div>
-      <div>
-        <label htmlFor="item-input">
-          Create a new item
-          <div>
-            <input
-              type="text"
-              name="item-input"
-              id="item-input"
-              placeholder="Type here"
-            />
-          </div>
-        </label>
-      </div>
-      <div>
-        <ul>
-          <li>
-            <input type="checkbox" name="" id="" /> 
-            Item
-            <button> <FaTrash/> </button>
-          </li>
-        </ul>
+        {items.map((item) => (
+          <ListContent item={item}/>
+        ))}
       </div>
     </>
   );
