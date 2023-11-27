@@ -1,0 +1,27 @@
+.todoForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 0;
+}
+
+.todoForm form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.todoForm input{
+    padding: 1%;
+    width: 30vw;
+}
+
+.todoForm input:focus{
+    opacity: 0.6;
+}
+
+.todoForm button{
+    padding: 1%;
+}
