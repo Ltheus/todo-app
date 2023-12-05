@@ -1,5 +1,5 @@
 .contentContainer{
-    border: 1px solid yellow;
+    /* border: 1px solid yellow;
     background-color: #282828;
     border-radius: 8px;
     margin-bottom: 3%;
@@ -9,60 +9,60 @@
     display: flex;
     justify-content: space-between;
     gap: 10px;
-    text-align: start;
+    text-align: start; */
 }
 
 .contentContainer p {
-    width: 80%;
+    /* width: 80%; */
 }
 
 
 .itemText[type="text"]{
-    border: none;
+    /* border: none;
     outline: none;
-    text-align: start;
+    text-align: start; */
 }
 
 .contentBtn{
-    margin: 0 5%;
+    /* margin: 0 5%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 15px; */
 }
 
 .contentBtn button {
-  display: flex;
+  /* display: flex;
   align-items: center;
-  padding: 15%;
+  padding: 15%; */
 }
 
 .finish{
-    background-color: #279e17;
-    border: none;
+    /* background-color: #279e17;
+    border: none; */
 }
 
 .finish:hover{
-    background-color: #4eac41;
-    opacity: 1;
+    /* background-color: #4eac41;
+    opacity: 1; */
 }
 
 .delete{
-    background-color: #9e172e;
-    border: none;
+    /* background-color: #9e172e;
+    border: none; */
 }
 
 .delete:hover{
-    background-color: #a73043;
-    opacity: 1;
+    /* background-color: #a73043;
+    opacity: 1; */
 }
 
 .edit{
-    background-color: #17739e;
-    border: none;
+    /* background-color: #17739e;
+    border: none; */
 }
 
 .edit:hover{
-    background-color: #439ac3;
-    opacity: 1;
+    /* background-color: #439ac3;
+    opacity: 1; */
 }

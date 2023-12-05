@@ -8,76 +8,62 @@
   color-scheme: light dark;
   color: rgb(255, 255, 255);
   background-color: #444444;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  margin: 0;
+  margin: 0 ;
   display: flex;
-  justify-content: center;
-}
-
-a {
-  font-weight: 300;
-  color: yellow;
-  text-decoration: inherit;
-}
-a:hover {
-  color: yellow;
+  justify-content: start;
+  align-items: center;
+  padding: 1% 2%;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-  font-weight: 500;
-}
-
-div {
-  padding: 0 2%;
+  margin: 0;
+  font-size: 2.5em;
+  font-weight: 700;
+  border-bottom: 1px solid white;
+  padding-bottom: 2%;
 }
 
 input[type="text"] {
-  border: 1px solid yellow;
+  /* border: 1px solid yellow;
   border-radius: 8px;
   font-size: 1em;
   font-weight: 300;
   font-family: inherit;
   background-color: #282828;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s; */
 }
 input[type="text"]:hover {
-  border-color: rgb(237, 237, 69);
-  opacity: .8;
+  /* border-color: rgb(237, 237, 69);
+  opacity: .8; */
 }
 input[type="text"]:focus,
 input[type="text"]:focus-visible {
-  outline: transparent;
+  /* outline: transparent; */
 }
 
 button {
-  border: 1px solid yellow;
+  /* border: 1px solid yellow;
   border-radius: 8px;
   font-size: 1em;
   font-weight: 300;
   font-family: inherit;
   background-color: #282828;
   cursor: pointer;
-  transition: background-color 0.25s;
+  transition: background-color 0.25s; */
 }
 button:hover {
-  border-color: rgb(237, 237, 69);
-  opacity: 0.8;
+  /* border-color: rgb(237, 237, 69);
+  opacity: 0.8; */
 }
 button:focus,
 button:focus-visible {
-  outline: transparent;
+  /* outline: transparent; */
 }
 
 li {
-  list-style: none;
-  text-decoration: none;
+  /* list-style: none;
+  text-decoration: none; */
 }

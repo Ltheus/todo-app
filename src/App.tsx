@@ -1,4 +1,3 @@
-import "./App.css";
 import { useEffect, useState } from "react";
 import { ListContent } from "./components/ListContent/ListContent";
 import { ListForm } from "./components/ListForm/ListForm";
@@ -72,21 +71,17 @@ function App() {
   return (
     <>
       <h1>To-do List</h1>
-      <div className="listContent">
-        {todos.map((item : any) => (
-          <ListContent
-            key={item.id}
-            item={item}
-            removeItem={removeItem}
-            completeItem={completeItem}
-            editItem={editItem}
-            submitItem={submitItem}
-          />
-        ))}
-      </div>
-      <div>
-        <ListForm addItem={addItem} />
-      </div>
+      {todos.map((item: any) => (
+        <ListContent
+          key={item.id}
+          item={item}
+          removeItem={removeItem}
+          completeItem={completeItem}
+          editItem={editItem}
+          submitItem={submitItem}
+        />
+      ))}
+      <ListForm addItem={addItem} />
     </>
   );
 }
