@@ -17,15 +17,16 @@ export const ListForm = ({addItem} : any) => {
 
   return (
     <div className={styled.todoForm}>
-      <h2>Nova tarefa: </h2>
-      <form onSubmit={handleSubmit}>
+      <h2>New task: </h2>
+      <form onSubmit={handleSubmit} id="addForm" name="addForm">
         <input
+        id="addInput"
           type="text"
-          placeholder="Digite o título da tarefa"
+          placeholder="What's your new task?"
           value={title}
           onChange={handleChange}
         />
-        <button type="submit"> Criar tarefa </button>
+        <button type="submit"> Create task </button>
       </form>
     </div>
   );

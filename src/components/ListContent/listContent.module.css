@@ -16,13 +16,12 @@
     width: 80%;
 }
 
-/* 
+
 .itemText[type="text"]{
     border: none;
     outline: none;
     text-align: start;
-    overflow-x: visible;
-} */
+}
 
 .contentBtn{
     margin: 0 5%;

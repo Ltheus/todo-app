@@ -1,49 +1,86 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ListContent } from "./components/ListContent/ListContent";
 import { ListForm } from "./components/ListForm/ListForm";
-// import { ListForm } from "./components/ListForm/ListForm";
+
+interface TodoProps{
+  id: number
+  text: string
+  isCompleted: boolean
+  isEditing: boolean
+}
 
 function App() {
-  const [items, setItems] = useState([]);
-  const [isCompleted, setIsCompleted] = useState(false);
+  const [todos, setTodos] = useState<TodoProps | any>([]);
 
   const addItem = (title: any) => {
+    const itemTitle = title
     const newItems: any = [
-      ...items,
+      ...todos,
       {
-        id: Math.floor(Math.random() * 69420),
-        text: title,
-        isCompleted: isCompleted,
+        id: Math.floor(Math.random() * 1000),
+        text: itemTitle,
+        isCompleted: false,
+        isEditing: false,
       },
     ];
-    setItems(newItems);
+    setTodos(newItems);
+    localStorage.setItem("TODO_LIST", JSON.stringify(newItems));
   };
 
   const removeItem = (id: number) => {
-    const newItems = [...items];
+    const newItems = [...todos];
     const filteredItems = newItems.filter((item) =>
       item.id !== id ? item : null
     );
-    setItems(filteredItems);
+    setTodos(filteredItems);
+    localStorage.setItem("TODO_LIST", JSON.stringify(filteredItems));
   };
 
-  const completeItem = (id : number) => {
-    const newItems = [...items];
-    newItems.map((item) => item.id === id ? item.isCompleted = !item.isCompleted : item)
-    setItems(newItems)
+  const editItem = (id: number) => {
+    const newItems = [...todos];
+    newItems.map((item) =>
+      item.id === id ? (item.isEditing = !item.isEditing) : item
+    );
+    setTodos(newItems);
+    localStorage.setItem("TODO_LIST", JSON.stringify(todos))
   };
+
+  const submitItem = (id: number, text: string) => {
+    const newItems = [...todos];
+    newItems.map((item) => (item.id === id ? (item.text = text) : null));
+    setTodos(newItems);
+    localStorage.setItem("TODO_LIST", JSON.stringify(todos));
+  };
+
+  const completeItem = (id: number) => {
+    const newItems = [...todos];
+    newItems.map((item) =>
+      item.id === id ? (item.isCompleted = !item.isCompleted) : item
+    );
+    setTodos(newItems);
+    localStorage.setItem("TODO_LIST", JSON.stringify(todos))
+  };
+
+  useEffect(() => {
+    const data = window.localStorage.getItem("TODO_LIST");
+    data !== null
+      ? setTodos(JSON.parse(data))
+      : setTodos([]);
+  }, []);
 
   return (
     <>
       <h1>To-do List</h1>
       <div className="listContent">
-        {items.map((item) => (
+        {todos.map((item : any) => (
           <ListContent
             key={item.id}
             item={item}
             removeItem={removeItem}
             completeItem={completeItem}
+            editItem={editItem}
+            submitItem={submitItem}
           />
         ))}
       </div>
