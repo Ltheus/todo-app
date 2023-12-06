@@ -2,18 +2,18 @@ import { useEffect, useState } from "react";
 import { ListContent } from "./components/ListContent/ListContent";
 import { ListForm } from "./components/ListForm/ListForm";
 
-interface TodoProps{
-  id: number
-  text: string
-  isCompleted: boolean
-  isEditing: boolean
+interface TodoProps {
+  id: number;
+  text: string;
+  isCompleted: boolean;
+  isEditing: boolean;
 }
 
 function App() {
   const [todos, setTodos] = useState<TodoProps | any>([]);
 
   const addItem = (title: any) => {
-    const itemTitle = title
+    const itemTitle = title;
     const newItems: any = [
       ...todos,
       {
@@ -42,7 +42,7 @@ function App() {
       item.id === id ? (item.isEditing = !item.isEditing) : item
     );
     setTodos(newItems);
-    localStorage.setItem("TODO_LIST", JSON.stringify(todos))
+    localStorage.setItem("TODO_LIST", JSON.stringify(todos));
   };
 
   const submitItem = (id: number, text: string) => {
@@ -58,31 +58,31 @@ function App() {
       item.id === id ? (item.isCompleted = !item.isCompleted) : item
     );
     setTodos(newItems);
-    localStorage.setItem("TODO_LIST", JSON.stringify(todos))
+    localStorage.setItem("TODO_LIST", JSON.stringify(todos));
   };
 
   useEffect(() => {
     const data = window.localStorage.getItem("TODO_LIST");
-    data !== null
-      ? setTodos(JSON.parse(data))
-      : setTodos([]);
+    data !== null ? setTodos(JSON.parse(data)) : setTodos([]);
   }, []);
 
   return (
-    <>
+    <div className="app-container">
       <h1>To-do List</h1>
-      {todos.map((item: any) => (
-        <ListContent
-          key={item.id}
-          item={item}
-          removeItem={removeItem}
-          completeItem={completeItem}
-          editItem={editItem}
-          submitItem={submitItem}
-        />
-      ))}
+      <div className="list-container">
+        {todos.map((item: any) => (
+          <ListContent
+            key={item.id}
+            item={item}
+            removeItem={removeItem}
+            completeItem={completeItem}
+            editItem={editItem}
+            submitItem={submitItem}
+          />
+        ))}
+      </div>
       <ListForm addItem={addItem} />
-    </>
+    </div>
   );
 }
 

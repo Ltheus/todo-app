@@ -25,7 +25,9 @@ export const ListContent = ({
         {!item.isEditing ? (
           <p
             style={{
-              color: item.isCompleted ? "#279e17" : "inherit",
+              color: item.isCompleted
+                ? "var(--sup-color-confirm-main)"
+                : "inherit",
               textDecoration: item.isCompleted ? "line-through" : "none",
             }}
           >
@@ -41,10 +43,6 @@ export const ListContent = ({
             <input
               id="editInput"
               type="text"
-              style={{
-                color: item.isCompleted ? "#279e17" : "inherit",
-                textDecoration: item.isCompleted ? "line-through" : "none",
-              }}
               value={text ?? ""}
               onChange={(e) => {
                 setText(e.target.value);
@@ -53,7 +51,7 @@ export const ListContent = ({
             />
           </form>
         )}
-        <div className={styled.contentBtn}>
+        <div className={styled.btnContainer}>
           <button
             disabled={item.isCompleted}
             className={styled.edit}
