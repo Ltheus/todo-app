@@ -68,7 +68,9 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1>To-do List</h1>
+      <div className="title-container">
+        <h1>Lista de Tarefas</h1>
+      </div>
       <div className="list-container">
         {todos.map((item: any) => (
           <ListContent
@@ -81,7 +83,9 @@ function App() {
           />
         ))}
       </div>
-      <ListForm addItem={addItem} />
+      <div className="form-container">
+        <ListForm addItem={addItem} />
+      </div>
     </div>
   );
 }

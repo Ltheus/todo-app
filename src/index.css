@@ -1,23 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400&display=swap");
 
 :root {
-  /* !colors:  ----------------------------- */
-  --brand-color-light: hsl(275, 96%, 68%);
+  /* !colors:  -------------------------------- */
+  --brand-color-light: hsl(275, 72%, 79%);
   --brand-color-main: hsl(275, 90%, 48%);
   --brand-color-dark: hsl(275, 94%, 28%);
-  /*!----------------------------------- */
+  /*!------------------------------------------ */
   --sup-color-danger-light: hsl(7, 87%, 68%);
   --sup-color-danger-main: hsl(7, 83%, 34%);
-  --sup-color-danger-dark: hsl(7, 88%, 17%);
-  /*!----------------------------------- */
+  --sup-color-danger-dark: hsl(7, 88%, 22%);
+  /*!------------------------------------------ */
   --sup-color-confirm-light: hsl(90, 100%, 65%);
   --sup-color-confirm-main: hsl(90, 94%, 27%);
-  --sup-color-confirm-dark: hsl(90, 96%, 11%);
-  /*!----------------------------------- */
+  --sup-color-confirm-dark: hsl(90, 95%, 15%);
+  /*!------------------------------------------ */
   --sup-color-warn-light: hsl(189, 81%, 61%);
   --sup-color-warn-main: hsl(189, 61%, 41%);
-  --sup-color-warn-dark: hsl(189, 88%, 16%);
-  /*!----------------------------------- */
+  --sup-color-warn-dark: hsl(189, 91%, 18%);
+  /*!------------------------------------------ */
   --neutral-color-xlight: hsl(180, 2%, 76%);
   --neutral-color-light: hsl(190, 4%, 40%);
   --neutral-color-main: hsl(190, 6%, 30%);
@@ -40,49 +40,73 @@ body {
 
 .app-container {
   background-color: var(--brand-color-main);
-  min-height: 100vh;
+  min-height: 600px;
+  min-width: 600px;
   border-radius: 15px;
   padding: 5%;
+  box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.438);
 
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: start;
 }
 
 .list-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: 0;
+  justify-content: start;
+  margin: 1% 0;
+  min-height: 460px;
+  max-height: 460px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.list-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.list-container::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 20px;
+}
+
+.list-container::-webkit-scrollbar-thumb {
+  background: var(--brand-color-dark);
+  border-radius: 20px;
 }
 
 h1 {
   margin: 0;
   font-size: 2.5em;
-  font-weight: 300;
+  font-weight: 400;
   border-bottom: 1px solid var(--neutral-color-xlight);
 }
 
 h2 {
   margin: 0;
-  font-size: 1.3em;
+  padding: 1% 0;
+  font-size: 1.8em;
   font-weight: 300;
   border-top: solid 1px var(--neutral-color-xlight);
 }
 
 input[type="text"] {
   border-radius: 8px;
+  padding: 1%;
   font-size: 1em;
-  font-weight: 300;
+  font-weight: 200;
   font-family: inherit;
-  transition: border-color 0.25s;
+  margin-bottom: 4%;
+  transition: all 0.25s;
 }
 input[type="text"]:hover {
-  opacity: .8;
+  opacity: 0.8;
 }
 input[type="text"]:focus,
 input[type="text"]:focus-visible {
-  outline: transparent;
+  outline: solid 2px var(--brand-color-dark);
+  opacity: 1;
 }
 
 button {
@@ -100,4 +124,11 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: transparent;
+}
+button:disabled {
+  background-color: var(--neutral-color-dark);
+}
+button:disabled:hover {
+  background-color: var(--neutral-color-dark);
+  opacity: 1;
 }

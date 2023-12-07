@@ -38,10 +38,10 @@ export const ListContent = ({
             className={styled.itemText}
             onSubmit={handleSubmit}
             id="editForm"
-            name="editForm"
           >
             <input
               id="editInput"
+              className={styled.itemText}
               type="text"
               value={text ?? ""}
               onChange={(e) => {
@@ -52,18 +52,7 @@ export const ListContent = ({
           </form>
         )}
         <div className={styled.btnContainer}>
-          <button
-            disabled={item.isCompleted}
-            className={styled.edit}
-            type="submit"
-            onClick={() => {
-              setText(text);
-              item.text = text;
-              editItem(item.id);
-            }}
-          >
-            <FaPencilAlt />
-          </button>
+          {/* complete item button ---------------------------------------------------------------------------------------------- */}
           <button
             disabled={item.isEditing}
             className={styled.finish}
@@ -71,6 +60,20 @@ export const ListContent = ({
           >
             <FaCheck />
           </button>
+          {/* edit item button -------------------------------------------------------------------------------------------------- */}
+          <button
+            disabled={item.isCompleted}
+            className={styled.edit}
+            type="submit"
+            onClick={() => {
+              setText(text == !null ? text : item.text);
+              item.text = text;
+              editItem(item.id);
+            }}
+          >
+            <FaPencilAlt />
+          </button>
+          {/* delete item button ------------------------------------------------------------------------------------------------ */}
           <button
             disabled={item.isEditing}
             className={styled.delete}
