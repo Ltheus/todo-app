@@ -22,10 +22,28 @@
   word-wrap: break-word;
 }
 
+.itemText{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
 .itemText[type="text"] {
   border: none;
   outline: none;
   text-align: start;
+}
+
+
+.itemText button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5% 5%;
+  border-radius: 10px;
+  font-size: 0.8em;
+  color: var(--neutral-color-xlight);
 }
 
 .btnContainer {
@@ -56,6 +74,12 @@
 .edit {
   background-color: var(--sup-color-warn-main);
 }
+
+.save {
+  background-color: var(--brand-color-main);
+  margin-bottom: 3.8%;
+}
+
 .finish:hover {
   background-color: var(--sup-color-confirm-dark);
   opacity: 1;
@@ -68,5 +92,10 @@
 
 .edit:hover {
   background-color: var(--sup-color-warn-dark);
+  opacity: 1;
+}
+
+.save:hover {
+  background-color: var(--brand-color-dark);
   opacity: 1;
 }

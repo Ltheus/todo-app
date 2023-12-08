@@ -30,7 +30,7 @@ function App() {
   const removeItem = (id: number) => {
     const newItems = [...todos];
     const filteredItems = newItems.filter((item) =>
-      item.id !== id ? item : null
+      item?.id !== id ? item : null
     );
     setTodos(filteredItems);
     localStorage.setItem("TODO_LIST", JSON.stringify(filteredItems));
@@ -39,7 +39,7 @@ function App() {
   const editItem = (id: number) => {
     const newItems = [...todos];
     newItems.map((item) =>
-      item.id === id ? (item.isEditing = !item.isEditing) : item
+      item?.id === id ? (item.isEditing = !item?.isEditing) : item
     );
     setTodos(newItems);
     localStorage.setItem("TODO_LIST", JSON.stringify(todos));
@@ -47,7 +47,7 @@ function App() {
 
   const submitItem = (id: number, text: string) => {
     const newItems = [...todos];
-    newItems.map((item) => (item.id === id ? (item.text = text) : null));
+    newItems.map((item) => (item?.id === id ? (item.text = text) : null));
     setTodos(newItems);
     localStorage.setItem("TODO_LIST", JSON.stringify(todos));
   };
@@ -55,7 +55,7 @@ function App() {
   const completeItem = (id: number) => {
     const newItems = [...todos];
     newItems.map((item) =>
-      item.id === id ? (item.isCompleted = !item.isCompleted) : item
+      item?.id === id ? (item.isCompleted = !item?.isCompleted) : item
     );
     setTodos(newItems);
     localStorage.setItem("TODO_LIST", JSON.stringify(todos));
@@ -74,7 +74,7 @@ function App() {
       <div className="list-container">
         {todos.map((item: any) => (
           <ListContent
-            key={item.id}
+            key={item?.id}
             item={item}
             removeItem={removeItem}
             completeItem={completeItem}

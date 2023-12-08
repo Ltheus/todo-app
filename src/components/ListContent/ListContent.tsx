@@ -1,4 +1,4 @@
-import { FaCheck, FaPencilAlt, FaTrash } from "react-icons/fa";
+import { FaCheck, FaPencilAlt, FaSave, FaTrash } from "react-icons/fa";
 import styled from "./listContent.module.css";
 import { useState } from "react";
 
@@ -49,6 +49,13 @@ export const ListContent = ({
                 item.text = text;
               }}
             />
+            <button
+              className={styled.save}
+              type="submit"
+              onClick={handleSubmit}
+            >
+              <FaSave />
+            </button>
           </form>
         )}
         <div className={styled.btnContainer}>
@@ -62,13 +69,11 @@ export const ListContent = ({
           </button>
           {/* edit item button -------------------------------------------------------------------------------------------------- */}
           <button
-            disabled={item.isCompleted}
+            disabled={item.isCompleted || item.isEditing}
             className={styled.edit}
-            type="submit"
             onClick={() => {
-              setText(text == !null ? text : item.text);
-              item.text = text;
               editItem(item.id);
+              setText(text == !null ? text : item.text);
             }}
           >
             <FaPencilAlt />
