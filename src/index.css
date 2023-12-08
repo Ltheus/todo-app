@@ -1,68 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400&display=swap");
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* !colors:  -------------------------------- */
+  --brand-color-light: hsl(275, 72%, 79%);
+  --brand-color-main: hsl(275, 90%, 48%);
+  --brand-color-dark: hsl(275, 94%, 28%);
+  /*!------------------------------------------ */
+  --sup-color-danger-light: hsl(7, 87%, 68%);
+  --sup-color-danger-main: hsl(7, 83%, 34%);
+  --sup-color-danger-dark: hsl(7, 88%, 22%);
+  /*!------------------------------------------ */
+  --sup-color-confirm-light: hsl(90, 100%, 65%);
+  --sup-color-confirm-main: hsl(90, 94%, 27%);
+  --sup-color-confirm-dark: hsl(90, 95%, 15%);
+  /*!------------------------------------------ */
+  --sup-color-warn-light: hsl(189, 81%, 61%);
+  --sup-color-warn-main: hsl(189, 61%, 41%);
+  --sup-color-warn-dark: hsl(189, 91%, 18%);
+  /*!------------------------------------------ */
+  --neutral-color-xlight: hsl(180, 2%, 76%);
+  --neutral-color-light: hsl(190, 4%, 40%);
+  --neutral-color-main: hsl(190, 6%, 30%);
+  --neutral-color-dark: hsl(190, 6%, 20%);
+  --neutral-color-xdark: hsl(190, 3%, 10%);
+
+  font-family: "Kanit", sans-serif;
   line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  font-weight: 200;
+  color: var(--neutral-color-xdark);
 }
 
 body {
-  margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding: 1% 0;
+  background-color: var(--neutral-color-light);
+}
+
+.app-container {
+  background-color: var(--brand-color-main);
+  min-height: 600px;
+  min-width: 600px;
+  border-radius: 15px;
+  padding: 5%;
+  box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.438);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin: 1% 0;
+  min-height: 460px;
+  max-height: 460px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.list-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.list-container::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 20px;
+}
+
+.list-container::-webkit-scrollbar-thumb {
+  background: var(--brand-color-dark);
+  border-radius: 20px;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  margin: 0;
+  font-size: 2.5em;
+  font-weight: 400;
+  border-bottom: 1px solid var(--neutral-color-xlight);
+}
+
+h2 {
+  margin: 0;
+  padding: 1% 0;
+  font-size: 1.8em;
+  font-weight: 300;
+  border-top: solid 1px var(--neutral-color-xlight);
+}
+
+input[type="text"] {
+  border-radius: 8px;
+  padding: 1%;
+  font-size: 1em;
+  font-weight: 200;
+  font-family: inherit;
+  margin-bottom: 4%;
+  transition: all 0.25s;
+}
+input[type="text"]:hover {
+  opacity: 0.8;
+}
+input[type="text"]:focus,
+input[type="text"]:focus-visible {
+  outline: solid 2px var(--brand-color-dark);
+  opacity: 1;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  border-radius: 10px;
+  font-size: 0.8em;
+  font-weight: 200;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.25s;
+  border: none;
 }
 button:hover {
-  border-color: #646cff;
+  opacity: 0.6;
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: transparent;
 }
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+button:disabled {
+  background-color: var(--neutral-color-dark);
+}
+button:disabled:hover {
+  background-color: var(--neutral-color-dark);
+  opacity: 1;
 }
