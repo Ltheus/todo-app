@@ -44,4 +44,5 @@ Para instalar a aplicação, basta seguir o passo-a-passo:
 3. Após rodar a aplicação, acesse a URL que aparecerá no terminal ou clique [aqui](http://localhost:5173/).
  
  \* Caso não possua o NodeJS instalado, clique [aqui](https://nodejs.org/en/download/current) e instale  a versão mais recente (LTS).
+ 
  \** Caso não possua o npm instalado, clique [aqui](https://www.npmjs.com/package/npm) e siga os passos para a instalação.
