@@ -15,13 +15,13 @@ function App() {
   const addItem = (title: any) => {
     const itemTitle = title;
     const newItems: any = [
-      ...todos,
       {
-        id: Math.floor(Math.random() * 1000),
+        id: todos.length + 1,
         text: itemTitle,
         isCompleted: false,
         isEditing: false,
       },
+      ...todos,
     ];
     setTodos(newItems);
     localStorage.setItem("TODO_LIST", JSON.stringify(newItems));
@@ -72,16 +72,39 @@ function App() {
         <h1>Lista de Tarefas</h1>
       </div>
       <div className="list-container">
-        {todos.map((item: any) => (
-          <ListContent
-            key={item?.id}
-            item={item}
-            removeItem={removeItem}
-            completeItem={completeItem}
-            editItem={editItem}
-            submitItem={submitItem}
-          />
-        ))}
+        <div className="todo-container">
+          {todos.map((item: any) =>
+            !item?.isCompleted ? (
+              <ListContent
+                key={item?.id}
+                item={item}
+                removeItem={removeItem}
+                completeItem={completeItem}
+                editItem={editItem}
+                submitItem={submitItem}
+              />
+            ) : null
+          )}
+        </div>
+        {todos.some((item: any) => item?.isCompleted) && (
+          <div className="done-container">
+            <h2>Tarefas completas</h2>
+            {todos.map((item: any) =>
+              item?.isCompleted ? (
+                <>
+                  <ListContent
+                    key={item?.id}
+                    item={item}
+                    removeItem={removeItem}
+                    completeItem={completeItem}
+                    editItem={editItem}
+                    submitItem={submitItem}
+                  />
+                </>
+              ) : null
+            )}
+          </div>
+        )}
       </div>
       <div className="form-container">
         <ListForm addItem={addItem} />

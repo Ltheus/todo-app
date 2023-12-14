@@ -1,4 +1,4 @@
-import { FaCheck, FaPencilAlt, FaSave, FaTrash } from "react-icons/fa";
+import { FaCheck, FaPencilAlt, FaSave, FaTrash, FaUndo } from "react-icons/fa";
 import styled from "./listContent.module.css";
 import { useState } from "react";
 
@@ -59,33 +59,34 @@ export const ListContent = ({
           </form>
         )}
         <div className={styled.btnContainer}>
-          {/* complete item button ---------------------------------------------------------------------------------------------- */}
-          <button
-            disabled={item.isEditing}
-            className={styled.finish}
-            onClick={() => completeItem(item.id)}
-          >
-            <FaCheck />
-          </button>
-          {/* edit item button -------------------------------------------------------------------------------------------------- */}
-          <button
-            disabled={item.isCompleted || item.isEditing}
-            className={styled.edit}
-            onClick={() => {
-              editItem(item.id);
-              setText(text == !null ? text : item.text);
-            }}
-          >
-            <FaPencilAlt />
-          </button>
-          {/* delete item button ------------------------------------------------------------------------------------------------ */}
-          <button
-            disabled={item.isEditing}
-            className={styled.delete}
-            onClick={() => removeItem(item.id)}
-          >
-            <FaTrash />
-          </button>
+          {!item?.isEditing && (
+            <>
+              <button
+                disabled={item.isEditing}
+                className={styled.finish}
+                onClick={() => completeItem(item.id)}
+              >
+                {!item?.isCompleted ? <FaCheck /> : <FaUndo />}
+              </button>
+              <button
+                disabled={item.isCompleted || item.isEditing}
+                className={styled.edit}
+                onClick={() => {
+                  editItem(item.id);
+                  setText(text == !null ? text : item.text);
+                }}
+              >
+                <FaPencilAlt />
+              </button>
+              <button
+                disabled={item.isEditing}
+                className={styled.delete}
+                onClick={() => removeItem(item.id)}
+              >
+                <FaTrash />
+              </button>
+            </>
+          )}
         </div>
       </div>
     </>
