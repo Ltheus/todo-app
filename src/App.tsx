@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ListContent } from "./components/ListContent/ListContent";
 import { ListForm } from "./components/ListForm/ListForm";
+import { FaListCheck } from "react-icons/fa6";
 
 interface TodoProps {
   id: number;
@@ -16,7 +17,7 @@ function App() {
     const itemTitle = title;
     const newItems: any = [
       {
-        id: todos.length + 1,
+        id: Math.floor(Math.random() * 10000),
         text: itemTitle,
         isCompleted: false,
         isEditing: false,
@@ -68,27 +69,33 @@ function App() {
 
   return (
     <div className="app-container">
-      <div className="title-container">
-        <h1>Lista de Tarefas</h1>
-      </div>
+      <h1>
+        <span className="title-icon">
+          <FaListCheck />
+        </span>
+        TODO LIST
+      </h1>
       <div className="list-container">
-        <div className="todo-container">
-          {todos.map((item: any) =>
-            !item?.isCompleted ? (
-              <ListContent
-                key={item?.id}
-                item={item}
-                removeItem={removeItem}
-                completeItem={completeItem}
-                editItem={editItem}
-                submitItem={submitItem}
-              />
-            ) : null
-          )}
-        </div>
+        {todos.some((item: any) => !item?.isCompleted) && (
+          <div className="todo-container">
+            <h2>TODO</h2>
+            {todos.map((item: any) =>
+              !item?.isCompleted ? (
+                <ListContent
+                  key={item?.id}
+                  item={item}
+                  removeItem={removeItem}
+                  completeItem={completeItem}
+                  editItem={editItem}
+                  submitItem={submitItem}
+                />
+              ) : null
+            )}
+          </div>
+        )}
         {todos.some((item: any) => item?.isCompleted) && (
           <div className="done-container">
-            <h2>Tarefas completas</h2>
+            <h2>DONE</h2>
             {todos.map((item: any) =>
               item?.isCompleted ? (
                 <>

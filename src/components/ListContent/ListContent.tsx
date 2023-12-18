@@ -39,16 +39,19 @@ export const ListContent = ({
             onSubmit={handleSubmit}
             id="editForm"
           >
-            <input
-              id="editInput"
-              className={styled.itemText}
-              type="text"
-              value={text ?? ""}
-              onChange={(e) => {
-                setText(e.target.value);
-                item.text = text;
-              }}
-            />
+            <label>
+              EDITING...
+              <input
+                id="editInput"
+                className={styled.itemText}
+                type="text"
+                value={text ?? ""}
+                onChange={(e) => {
+                  setText(e.target.value);
+                  item.text = text;
+                }}
+              />
+            </label>
             <button
               className={styled.save}
               type="submit"

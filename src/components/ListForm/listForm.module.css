@@ -10,16 +10,18 @@
   justify-content: start;
   align-items: center;
   gap: 10px;
-}
+}*/
+
 
 .todoForm input[type="text"] {
   padding: 1.2%;
-  width: 600px;
+  background-color: var(--secondary);
+  border: 1px solid var(--primary);
   transition: all 0.25s;
-  border: none;
   margin: 0;
 }
 
+/*
 .todoForm button {
   display: flex;
   align-items: center;
