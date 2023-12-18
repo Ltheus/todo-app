@@ -40,11 +40,10 @@ export const ListContent = ({
             id="editForm"
           >
             <label>
-              EDITING...
-              <input
+              EDIT:
+              <textarea
                 id="editInput"
                 className={styled.itemText}
-                type="text"
                 value={text ?? ""}
                 onChange={(e) => {
                   setText(e.target.value);
@@ -57,7 +56,7 @@ export const ListContent = ({
               type="submit"
               onClick={handleSubmit}
             >
-              <FaSave />
+              <FaCheck />
             </button>
           </form>
         )}
