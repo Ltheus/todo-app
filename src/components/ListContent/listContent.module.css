@@ -9,6 +9,7 @@
 }
 
 .contentContainer p::first-letter{
+    text-transform: capitalize;
 }
 
 

@@ -70,35 +70,16 @@ function App() {
   return (
     <div className="app-container">
       <h1>
-        <span className="title-icon">
-          <FaListCheck />
-        </span>
+        <FaListCheck />
         TODO LIST
       </h1>
       <div className="list-container">
         {todos.some((item: any) => !item?.isCompleted) && (
-          <div className="todo-container">
+          <div className="content-container todo-container">
             <h2>TODO</h2>
-            {todos.map((item: any) =>
-              !item?.isCompleted ? (
-                <ListContent
-                  key={item?.id}
-                  item={item}
-                  removeItem={removeItem}
-                  completeItem={completeItem}
-                  editItem={editItem}
-                  submitItem={submitItem}
-                />
-              ) : null
-            )}
-          </div>
-        )}
-        {todos.some((item: any) => item?.isCompleted) && (
-          <div className="done-container">
-            <h2>DONE</h2>
-            {todos.map((item: any) =>
-              item?.isCompleted ? (
-                <>
+            <div className="item-container item-container-todo">
+              {todos.map((item: any) =>
+                !item?.isCompleted ? (
                   <ListContent
                     key={item?.id}
                     item={item}
@@ -107,15 +88,36 @@ function App() {
                     editItem={editItem}
                     submitItem={submitItem}
                   />
-                </>
-              ) : null
-            )}
+                ) : null
+              )}
+            </div>
+          </div>
+        )}
+        {todos.some((item: any) => item?.isCompleted) && (
+          <div className="content-container done-container">
+            <h2>DONE</h2>
+            <div className="item-container item-container-done">
+              {todos.map((item: any) =>
+                item?.isCompleted ? (
+                  <>
+                    <ListContent
+                      key={item?.id}
+                      item={item}
+                      removeItem={removeItem}
+                      completeItem={completeItem}
+                      editItem={editItem}
+                      submitItem={submitItem}
+                    />
+                  </>
+                ) : null
+              )}
+            </div>
           </div>
         )}
       </div>
-      <div className="form-container">
+      <footer className="form-container">
         <ListForm addItem={addItem} />
-      </div>
+      </footer>
     </div>
   );
 }

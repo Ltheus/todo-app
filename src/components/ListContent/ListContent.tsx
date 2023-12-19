@@ -41,7 +41,8 @@ export const ListContent = ({
           >
             <label>
               EDIT:
-              <textarea
+              <input
+                type="text"
                 id="editInput"
                 className={styled.itemText}
                 value={text ?? ""}
@@ -55,6 +56,7 @@ export const ListContent = ({
               className={styled.save}
               type="submit"
               onClick={handleSubmit}
+              disabled={text == (null || "")}
             >
               <FaCheck />
             </button>
