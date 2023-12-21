@@ -73,6 +73,9 @@ function App() {
         <FaListCheck />
         TODO LIST
       </h1>
+      <div className="form-container">
+        <ListForm addItem={addItem} />
+      </div>
       <div className="list-container">
         {todos.some((item: any) => !item?.isCompleted) && (
           <div className="content-container todo-container">
@@ -115,9 +118,6 @@ function App() {
           </div>
         )}
       </div>
-      <footer className="form-container">
-        <ListForm addItem={addItem} />
-      </footer>
     </div>
   );
 }

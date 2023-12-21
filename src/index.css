@@ -15,6 +15,7 @@ h1 {
   align-items: center;
   justify-content: start;
   gap: 0.5rem;
+  border-bottom: solid 1px var(--text);
 }
 
 h2 {
@@ -25,12 +26,12 @@ h1,
 h2 {
   font-weight: 700;
   text-shadow: 1px 2px 2px var(--dropshadow-light);
-  border-bottom: solid 1px var(--text);
   padding-bottom: 0.3rem;
 }
 
 :root {
   --text: hsl(47, 12%, 91%);
+  --text-accent: hsl(43, 15%, 71%);
   --background: hsl(43, 10%, 8%);
   --background-accent: hsl(48, 2%, 23%);
   --primary: hsl(43, 74%, 52%);
@@ -53,6 +54,10 @@ h2 {
   padding: 0 1rem 1rem;
 }
 
+.form-container{
+  padding-top: 1rem;
+}
+
 .list-container {
   display: flex;
   gap: 1rem;
@@ -67,8 +72,6 @@ h2 {
 .item-container {
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 60vh;
-  max-height: max-content;
   margin-top: 0.5rem;
 }
 
@@ -86,6 +89,10 @@ h2 {
 .done-container {
   background-color: var(--background-accent);
   border-radius: 3px;
+}
+
+.done-container h2{
+  border-bottom: solid 1px var(--text);
 }
 
 ::-webkit-scrollbar {
@@ -116,14 +123,17 @@ input[type="text"] {
   border-radius: 3px;
   outline: none;
   border: none;
+  transition: all 0.25s;
+  line-height: 0.8;
 }
 
 input[type="text"]:hover {
-  opacity: 0.8;
+  outline: solid 1px var(--accent);
 }
 
 input[type="text"]:focus,
 input[type="text"]:focus-visible {
+  outline: solid 1px var(--accent);
 }
 
 button {
@@ -136,6 +146,7 @@ button {
   border-radius: 3px;
   outline: none;
   border: none;
+  transition: all 0.25s;
 }
 
 button:hover {
