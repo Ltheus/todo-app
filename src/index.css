@@ -52,33 +52,38 @@ h2 {
 
 .app-container {
   padding: 0 1rem 1rem;
+  min-height: 50%;
+  max-height: 50%;
 }
 
-.form-container{
+.form-container {
   padding-top: 1rem;
 }
 
 .list-container {
   display: flex;
   gap: 1rem;
+  min-height: 45rem;
+  max-height: 45rem;
 }
 
 .content-container {
   flex: 1;
-  margin: 1rem 0;
+  margin: 1rem 0 0;
   padding: 1rem;
+  border-radius: 3px;
 }
 
 .item-container {
   overflow-y: scroll;
   overflow-x: hidden;
   margin-top: 0.5rem;
+  max-height: 40rem;
 }
 
 .todo-container {
   color: var(--background);
   background-color: var(--primary);
-  border-radius: 3px;
 }
 
 .todo-container h2 {
@@ -88,10 +93,9 @@ h2 {
 
 .done-container {
   background-color: var(--background-accent);
-  border-radius: 3px;
 }
 
-.done-container h2{
+.done-container h2 {
   border-bottom: solid 1px var(--text);
 }
 
@@ -114,6 +118,7 @@ h2 {
 
 .item-container-done::-webkit-scrollbar-thumb {
   background-color: var(--primary);
+  border-radius: 3px;
 }
 
 input[type="text"] {
@@ -154,15 +159,22 @@ button:hover {
 }
 
 @media (max-width: 700px) {
+  .app-container {
+    min-height: 30rem;
+    max-height: 30rem;
+  }
   .list-container {
     flex-direction: column;
     gap: 0;
+    min-height: 30%;
   }
   .content-container {
     margin: 0.6rem 0.2rem;
     padding: 0.4rem;
+    min-height: 19rem;
+    max-height: 19rem;
   }
   .item-container {
-    max-height: 18rem;
+    max-height: 15.6rem;
   }
 }
