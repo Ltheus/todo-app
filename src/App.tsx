@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { ListContent } from "./components/ListContent/ListContent";
 import { ListForm } from "./components/ListForm/ListForm";
 import { FaListCheck } from "react-icons/fa6";
+import { FaRegSadCry, FaRegSadTear, FaRegSmileWink } from "react-icons/fa";
+import { DeleteModal } from "./components/DeleteModal/DeleteModal";
 
 interface TodoProps {
   id: number;
@@ -68,56 +70,78 @@ function App() {
   }, []);
 
   return (
+
+    
     <div className="app-container">
+      <DeleteModal item={todos}/>
       <h1>
         <FaListCheck />
-        TODO LIST
+        TO-DO LIST
       </h1>
       <div className="form-container">
         <ListForm addItem={addItem} />
       </div>
-      <div className="list-container">
-        {todos.some((item: any) => !item?.isCompleted) && (
+      {todos?.length !== 0 ? (
+        <div className="list-container">
           <div className="content-container todo-container">
-            <h2>TODO</h2>
-            <div className="item-container item-container-todo">
-              {todos.map((item: any) =>
-                !item?.isCompleted ? (
-                  <ListContent
-                    key={item?.id}
-                    item={item}
-                    removeItem={removeItem}
-                    completeItem={completeItem}
-                    editItem={editItem}
-                    submitItem={submitItem}
-                  />
-                ) : null
-              )}
-            </div>
+            <h2>TO-DO</h2>
+            {todos.some((item: any) => !item?.isCompleted) ? (
+              <>
+                <div className="item-container item-container-todo">
+                  {todos.map((item: any) =>
+                    !item?.isCompleted ? (
+                      <ListContent
+                        key={item?.id}
+                        item={item}
+                        removeItem={removeItem}
+                        completeItem={completeItem}
+                        editItem={editItem}
+                        submitItem={submitItem}
+                      />
+                    ) : null
+                  )}
+                </div>
+              </>
+            ) : (
+              <p className="empty-card-message">
+                You got everything done! <FaRegSmileWink />
+              </p>
+            )}
           </div>
-        )}
-        {todos.some((item: any) => item?.isCompleted) && (
           <div className="content-container done-container">
             <h2>DONE</h2>
-            <div className="item-container item-container-done">
-              {todos.map((item: any) =>
-                item?.isCompleted ? (
-                  <>
-                    <ListContent
-                      key={item?.id}
-                      item={item}
-                      removeItem={removeItem}
-                      completeItem={completeItem}
-                      editItem={editItem}
-                      submitItem={submitItem}
-                    />
-                  </>
-                ) : null
-              )}
-            </div>
+            {todos.some((item: any) => item?.isCompleted) ? (
+              <>
+                <div className="item-container item-container-done">
+                  {todos.map((item: any) =>
+                    item?.isCompleted ? (
+                      <>
+                        <ListContent
+                          key={item?.id}
+                          item={item}
+                          removeItem={removeItem}
+                          completeItem={completeItem}
+                          editItem={editItem}
+                          submitItem={submitItem}
+                        />
+                      </>
+                    ) : null
+                  )}
+                </div>
+              </>
+            ) : (
+              <p className="empty-card-message">
+                You haven't completed any tasks! <FaRegSadCry />
+              </p>
+            )}
           </div>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div className="no-task-title">
+          <h2> You've got no tasks</h2>
+          <p> Start adding some on the field above and get things done!</p>
+        </div>
+      )}
     </div>
   );
 }

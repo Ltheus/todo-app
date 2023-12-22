@@ -1,17 +1,34 @@
 .contentContainer {
+  background-color: var(--secondary);
+  border-radius: 3px;
+  margin-bottom: 0.5rem;
+  padding: 0.1rem 1rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .contentContainer:hover {
+    opacity: 0.9;
 }
 
-
-.contentContainer p {
+.contentText{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    
+    text-align: start;
+    word-wrap: break-word;
+    text-wrap: wrap;
+    line-height: 1.1;
 }
 
-.contentContainer p::first-letter{
+.contentContainer p::first-letter {
     text-transform: capitalize;
 }
-
 
 .itemText {
 }
@@ -23,6 +40,8 @@
 }
 
 .btnContainer {
+    display: flex;
+    flex-direction: column;
 }
 
 .btnContainer button {

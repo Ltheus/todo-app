@@ -72,6 +72,15 @@ h2 {
   margin: 1rem 0 0;
   padding: 1rem;
   border-radius: 3px;
+  max-width: 50%;
+}
+
+.empty-card-message{
+  padding: 2.5rem 1rem;
+  margin: 1rem 0;
+  background-color: rgba(0, 0, 0, 0.081);
+  box-shadow: 2px 2px 2px var(--dropshadow-dark);
+  border-radius: 3px;
 }
 
 .item-container {
@@ -158,6 +167,19 @@ button:hover {
   opacity: 0.8;
 }
 
+.no-task-title{
+  color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+}
+
+.no-task-title h2{
+  text-shadow: none;
+}
+
 @media (max-width: 700px) {
   .app-container {
     min-height: 30rem;
@@ -176,5 +198,8 @@ button:hover {
   }
   .item-container {
     max-height: 15.6rem;
+  }
+  .no-task-title p{
+    font-size: .8rem;
   }
 }

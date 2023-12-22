@@ -1,4 +1,4 @@
-import { FaCheck, FaPencilAlt, FaSave, FaTrash, FaUndo } from "react-icons/fa";
+import { FaCheck, FaPencilAlt, FaTrash, FaUndo } from "react-icons/fa";
 import styled from "./listContent.module.css";
 import { useState } from "react";
 
@@ -23,35 +23,34 @@ export const ListContent = ({
     <>
       <div className={styled.contentContainer}>
         {!item.isEditing ? (
-          <p
-            style={{
-              color: item.isCompleted
-                ? "var(--sup-color-confirm-main)"
-                : "inherit",
-              textDecoration: item.isCompleted ? "line-through" : "none",
-            }}
-          >
-            {item.text}
-          </p>
+          <div className={styled.contentText}>
+            <p
+              style={{
+                color: item.isCompleted
+                  ? "var(--sup-color-confirm-main)"
+                  : "inherit",
+                textDecoration: item.isCompleted ? "line-through" : "none",
+              }}
+            >
+              {item.text}
+            </p>
+          </div>
         ) : (
           <form
             className={styled.itemText}
             onSubmit={handleSubmit}
             id="editForm"
           >
-            <label>
-              EDIT:
-              <input
-                type="text"
-                id="editInput"
-                className={styled.itemText}
-                value={text ?? ""}
-                onChange={(e) => {
-                  setText(e.target.value);
-                  item.text = text;
-                }}
-              />
-            </label>
+            <input
+              type="text"
+              id="editInput"
+              className={styled.itemText}
+              value={text ?? ""}
+              onChange={(e) => {
+                setText(e.target.value);
+                item.text = text;
+              }}
+            />
             <button
               className={styled.save}
               type="submit"
