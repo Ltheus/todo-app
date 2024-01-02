@@ -13,6 +13,7 @@
 
 .modal {
   background-color: var(--secondary);
+  color: var(--background);
   border-radius: 6px;
 
   padding: 3rem;
@@ -29,6 +30,10 @@
   padding: 1rem 0;
 }
 
+.modalTitle h2 {
+  text-shadow: var(--dropshadow-dark);
+}
+
 .modalTitle p {
   background-color: rgba(0, 0, 0, 0.15);
   padding: 0.5rem;
@@ -38,5 +43,6 @@
 .modalBtn {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 2.5rem;
 }

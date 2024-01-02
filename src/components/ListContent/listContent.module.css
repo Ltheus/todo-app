@@ -1,22 +1,18 @@
 .contentContainer {
-  background-color: var(--secondary);
+  padding: 2rem 1rem;
+  background-color: var(--card-background);
+  box-shadow: 2px 2px 2px var(--dropshadow-dark);
   border-radius: 3px;
-  margin-bottom: 0.5rem;
-  padding: 0.1rem 1rem;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
-  gap: 0.5rem;
-}
-
-.contentContainer:hover {
-    opacity: 0.9;
+  gap: 2rem;
 }
 
 .contentText{
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
     
@@ -24,16 +20,18 @@
     word-wrap: break-word;
     text-wrap: wrap;
     line-height: 1.1;
+    flex: 1;
 }
 
 .contentContainer p::first-letter {
     text-transform: capitalize;
+    max-width: 60%;
 }
 
 .itemText {
 }
 
-.itemText[type="text"] {
+.itemText input[type="text"] {
 }
 
 .itemText button {
@@ -41,13 +39,15 @@
 
 .btnContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: .5rem;
 }
 
 .btnContainer button {
 }
 
 .btnContainer button:active {
+    background-color: var(--text);
 }
 
 .btnContainer button:hover {

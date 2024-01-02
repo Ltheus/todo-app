@@ -70,10 +70,8 @@ function App() {
   }, []);
 
   return (
-
-    
     <div className="app-container">
-      <DeleteModal item={todos}/>
+      {/* <DeleteModal item={todos}/> */}
       <h1>
         <FaListCheck />
         TO-DO LIST
@@ -104,7 +102,8 @@ function App() {
               </>
             ) : (
               <p className="empty-card-message">
-                You got everything done! <FaRegSmileWink />
+                You got everything done!
+                <FaRegSmileWink className="emoji"/>
               </p>
             )}
           </div>
@@ -131,7 +130,8 @@ function App() {
               </>
             ) : (
               <p className="empty-card-message">
-                You haven't completed any tasks! <FaRegSadCry />
+                You haven't completed any tasks...
+                <FaRegSadCry className="emoji"/>
               </p>
             )}
           </div>

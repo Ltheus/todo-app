@@ -26,9 +26,6 @@ export const ListContent = ({
           <div className={styled.contentText}>
             <p
               style={{
-                color: item.isCompleted
-                  ? "var(--sup-color-confirm-main)"
-                  : "inherit",
                 textDecoration: item.isCompleted ? "line-through" : "none",
               }}
             >
@@ -44,7 +41,6 @@ export const ListContent = ({
             <input
               type="text"
               id="editInput"
-              className={styled.itemText}
               value={text ?? ""}
               onChange={(e) => {
                 setText(e.target.value);
@@ -52,7 +48,7 @@ export const ListContent = ({
               }}
             />
             <button
-              className={styled.save}
+              className="confirm-button"
               type="submit"
               onClick={handleSubmit}
               disabled={text == (null || "")}
@@ -66,14 +62,14 @@ export const ListContent = ({
             <>
               <button
                 disabled={item.isEditing}
-                className={styled.finish}
+                className="confirm-button"
                 onClick={() => completeItem(item.id)}
               >
                 {!item?.isCompleted ? <FaCheck /> : <FaUndo />}
               </button>
               <button
-                disabled={item.isCompleted || item.isEditing}
-                className={styled.edit}
+                disabled={item.isCompleted}
+                className="edit-button"
                 onClick={() => {
                   editItem(item.id);
                   setText(text == !null ? text : item.text);
@@ -82,8 +78,7 @@ export const ListContent = ({
                 <FaPencilAlt />
               </button>
               <button
-                disabled={item.isEditing}
-                className={styled.delete}
+                className="delete-button"
                 onClick={() => removeItem(item.id)}
               >
                 <FaTrash />

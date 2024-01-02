@@ -34,9 +34,14 @@ h2 {
   --text-accent: hsl(43, 15%, 71%);
   --background: hsl(43, 10%, 8%);
   --background-accent: hsl(48, 2%, 23%);
+  --card-background: hsla(0, 0%, 0%, 0.081);
   --primary: hsl(43, 74%, 52%);
   --secondary: hsl(43, 83%, 65%);
   --accent: hsl(47, 96%, 50%);
+  --confirm: hsl(84, 60%, 52%);
+  --edit: hsl(193, 54%, 52%);
+  --delete: hsl(8, 64%, 52%);
+
   --dropshadow-dark: hsla(40, 5%, 5%, 0.26);
   --dropshadow-light: hsla(40, 35%, 95%, 0.3);
 
@@ -73,21 +78,37 @@ h2 {
   padding: 1rem;
   border-radius: 3px;
   max-width: 50%;
+  min-width: 50%;
 }
 
-.empty-card-message{
-  padding: 2.5rem 1rem;
-  margin: 1rem 0;
-  background-color: rgba(0, 0, 0, 0.081);
+.empty-card-message {
+  padding: 2.4rem 1rem;
+  margin: 0.5rem 0;
+  background-color: var(--card-background);
   box-shadow: 2px 2px 2px var(--dropshadow-dark);
   border-radius: 3px;
+
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.emoji {
+  font-size: 1.3rem;
 }
 
 .item-container {
   overflow-y: scroll;
   overflow-x: hidden;
-  margin-top: 0.5rem;
+  margin: 0.5rem 0 0;
+  padding: 0 0.5rem 0.5rem;
   max-height: 40rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .todo-container {
@@ -112,17 +133,13 @@ h2 {
   width: 0.5rem;
 }
 
-.item-container-todo::-webkit-scrollbar-track {
-  background-color: var(--primary);
+::-webkit-scrollbar-track {
+  background-color: transparent;
 }
 
 .item-container-todo::-webkit-scrollbar-thumb {
   background-color: var(--background-accent);
   border-radius: 3px;
-}
-
-.item-container-done::-webkit-scrollbar-track {
-  background-color: var(--background-accent);
 }
 
 .item-container-done::-webkit-scrollbar-thumb {
@@ -153,6 +170,7 @@ input[type="text"]:focus-visible {
 button {
   font-size: 0.8rem;
   text-align: center;
+  box-shadow: 2px 2px 2px --dropshadow-dark;
 
   padding: 0.5rem;
   width: 2rem;
@@ -165,9 +183,25 @@ button {
 
 button:hover {
   opacity: 0.8;
+  cursor: pointer;
 }
 
-.no-task-title{
+button:disabled:hover {
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.confirm-button {
+  background-color: var(--confirm);
+}
+.edit-button {
+  background-color: var(--edit);
+}
+.delete-button {
+  background-color: var(--delete);
+}
+
+.no-task-title {
   color: var(--primary);
   display: flex;
   flex-direction: column;
@@ -176,7 +210,7 @@ button:hover {
   margin-top: 10rem;
 }
 
-.no-task-title h2{
+.no-task-title h2 {
   text-shadow: none;
 }
 
@@ -195,11 +229,12 @@ button:hover {
     padding: 0.4rem;
     min-height: 19rem;
     max-height: 19rem;
+    min-width: 100%;
   }
   .item-container {
     max-height: 15.6rem;
   }
-  .no-task-title p{
-    font-size: .8rem;
+  .no-task-title p {
+    font-size: 0.8rem;
   }
 }
