@@ -14,7 +14,7 @@
 .modal {
   background-color: var(--secondary);
   color: var(--background);
-  border-radius: 6px;
+  border-radius: 3px;
 
   padding: 3rem;
   display: flex;
@@ -24,25 +24,23 @@
 }
 
 .modalTitle {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
   padding: 1rem 0;
 }
 
 .modalTitle h2 {
   text-shadow: var(--dropshadow-dark);
-}
-
-.modalTitle p {
-  background-color: rgba(0, 0, 0, 0.15);
-  padding: 0.5rem;
-  border-radius: 3px;
+  text-align: start;
 }
 
 .modalBtn {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   gap: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .modal {
+  margin: 0 2rem;
+}
 }

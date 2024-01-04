@@ -34,14 +34,14 @@ h2 {
   --text-accent: hsl(43, 15%, 71%);
   --background: hsl(43, 10%, 8%);
   --background-accent: hsl(48, 2%, 23%);
-  --card-background: hsla(0, 0%, 0%, 0.081);
   --primary: hsl(43, 74%, 52%);
   --secondary: hsl(43, 83%, 65%);
   --accent: hsl(47, 96%, 50%);
   --confirm: hsl(84, 60%, 52%);
   --edit: hsl(193, 54%, 52%);
   --delete: hsl(8, 64%, 52%);
-
+  
+  --card-background: hsla(40, 0%, 0%, 0.081);
   --dropshadow-dark: hsla(40, 5%, 5%, 0.26);
   --dropshadow-light: hsla(40, 35%, 95%, 0.3);
 
@@ -67,9 +67,9 @@ h2 {
 
 .list-container {
   display: flex;
-  gap: 1rem;
   min-height: 45rem;
   max-height: 45rem;
+  gap: 1rem;
 }
 
 .content-container {
@@ -77,8 +77,8 @@ h2 {
   margin: 1rem 0 0;
   padding: 1rem;
   border-radius: 3px;
-  max-width: 50%;
-  min-width: 50%;
+  min-width: 49.6%;
+  max-width: 49.6%;
 }
 
 .empty-card-message {
@@ -135,6 +135,11 @@ h2 {
 
 ::-webkit-scrollbar-track {
   background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--background-accent);
+  border-radius: 3px;
 }
 
 .item-container-todo::-webkit-scrollbar-thumb {
@@ -207,6 +212,7 @@ button:disabled:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   margin-top: 10rem;
 }
 
@@ -214,19 +220,20 @@ button:disabled:hover {
   text-shadow: none;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .app-container {
     min-height: 30rem;
     max-height: 30rem;
   }
   .list-container {
     flex-direction: column;
+    align-items: center;
     gap: 0;
     min-height: 30%;
   }
   .content-container {
     margin: 0.6rem 0.2rem;
-    padding: 0.4rem;
+    padding: 1rem;
     min-height: 19rem;
     max-height: 19rem;
     min-width: 100%;

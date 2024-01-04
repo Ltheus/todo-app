@@ -1,6 +1,7 @@
 import { FaCheck, FaPencilAlt, FaTrash, FaUndo } from "react-icons/fa";
 import styled from "./listContent.module.css";
 import { useState } from "react";
+import { TaskModal } from "../TaskModal/TaskModal";
 
 export const ListContent = ({
   item,
@@ -8,6 +9,7 @@ export const ListContent = ({
   completeItem,
   editItem,
   submitItem,
+  openItem,
 }: any) => {
   const [text, setText] = useState(item.text);
 
@@ -23,7 +25,10 @@ export const ListContent = ({
     <>
       <div className={styled.contentContainer}>
         {!item.isEditing ? (
-          <div className={styled.contentText}>
+          <div
+            className={styled.contentText}
+            onClick={() => openItem(item?.id)}
+          >
             <p
               style={{
                 textDecoration: item.isCompleted ? "line-through" : "none",
@@ -39,6 +44,7 @@ export const ListContent = ({
             id="editForm"
           >
             <input
+              autoFocus={true}
               type="text"
               id="editInput"
               value={text ?? ""}

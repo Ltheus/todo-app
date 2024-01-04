@@ -5,50 +5,51 @@
   border-radius: 3px;
 
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
   align-items: center;
   gap: 2rem;
+  transition: all .25s;
 }
 
-.contentText{
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    
-    text-align: start;
-    word-wrap: break-word;
-    text-wrap: wrap;
-    line-height: 1.1;
-    flex: 1;
+.contentText {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: start;
+  word-wrap: break-word;
+  text-wrap: wrap;
+  line-height: 1.2;
+
+  flex: 1;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
 }
 
-.contentContainer p::first-letter {
-    text-transform: capitalize;
-    max-width: 60%;
-}
-
-.itemText {
-}
-
-.itemText input[type="text"] {
-}
-
-.itemText button {
+.contentText:hover {
+  cursor: pointer;
+  background-color: var(--card-background);
 }
 
 .btnContainer {
-    display: flex;
-    flex-direction: row;
-    gap: .5rem;
-}
-
-.btnContainer button {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
 }
 
 .btnContainer button:active {
-    background-color: var(--text);
+  background-color: var(--text);
 }
 
-.btnContainer button:hover {
+.itemText {
+  /* background-color: rgba(255, 0, 0, 0.334); */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.itemText input[type="text"] {
+  padding: 0 0.5rem;
+  flex: 1;
 }

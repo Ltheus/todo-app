@@ -2,14 +2,16 @@ import { useEffect, useState } from "react";
 import { ListContent } from "./components/ListContent/ListContent";
 import { ListForm } from "./components/ListForm/ListForm";
 import { FaListCheck } from "react-icons/fa6";
-import { FaRegSadCry, FaRegSadTear, FaRegSmileWink } from "react-icons/fa";
-import { DeleteModal } from "./components/DeleteModal/DeleteModal";
+import { FaRegSadCry, FaRegSmileWink } from "react-icons/fa";
+// import { DeleteModal } from "./components/DeleteModal/DeleteModal";
+import { TaskModal } from "./components/TaskModal/TaskModal";
 
 interface TodoProps {
   id: number;
   text: string;
   isCompleted: boolean;
   isEditing: boolean;
+  isOpen: boolean;
 }
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
         text: itemTitle,
         isCompleted: false,
         isEditing: false,
+        isOpen: false,
       },
       ...todos,
     ];
@@ -30,7 +33,7 @@ function App() {
     localStorage.setItem("TODO_LIST", JSON.stringify(newItems));
   };
 
-  const removeItem = (id: number) => {
+  const removeItem = (id: number) => { //passar  como prop pro modal de deleçao
     const newItems = [...todos];
     const filteredItems = newItems.filter((item) =>
       item?.id !== id ? item : null
@@ -57,9 +60,16 @@ function App() {
 
   const completeItem = (id: number) => {
     const newItems = [...todos];
-    newItems.map((item) =>
-      item?.id === id ? (item.isCompleted = !item?.isCompleted) : item
+    newItems.map(
+      (item) => item?.id === id && (item.isCompleted = !item?.isCompleted)
     );
+    setTodos(newItems);
+    localStorage.setItem("TODO_LIST", JSON.stringify(todos));
+  };
+
+  const openItem = (id: number) => {
+    const newItems = [...todos];
+    newItems.map((item) => item?.id === id && (item.isOpen = !item?.isOpen));
     setTodos(newItems);
     localStorage.setItem("TODO_LIST", JSON.stringify(todos));
   };
@@ -69,9 +79,16 @@ function App() {
     data !== null ? setTodos(JSON.parse(data)) : setTodos([]);
   }, []);
 
+  //! render start --------------------------------------------------------------------------------
+
   return (
     <div className="app-container">
-      {/* <DeleteModal item={todos}/> */}
+      {todos.map(
+        (item : any) =>
+          item?.isOpen && (
+            <TaskModal isOpen={item?.isOpen} openModal={openItem} item={item}> {item?.text} </TaskModal>
+          )
+      )}
       <h1>
         <FaListCheck />
         TO-DO LIST
@@ -95,6 +112,7 @@ function App() {
                         completeItem={completeItem}
                         editItem={editItem}
                         submitItem={submitItem}
+                        openItem={openItem}
                       />
                     ) : null
                   )}
@@ -103,7 +121,7 @@ function App() {
             ) : (
               <p className="empty-card-message">
                 You got everything done!
-                <FaRegSmileWink className="emoji"/>
+                <FaRegSmileWink className="emoji" />
               </p>
             )}
           </div>
@@ -122,6 +140,7 @@ function App() {
                           completeItem={completeItem}
                           editItem={editItem}
                           submitItem={submitItem}
+                          openItem={openItem}
                         />
                       </>
                     ) : null
@@ -131,7 +150,7 @@ function App() {
             ) : (
               <p className="empty-card-message">
                 You haven't completed any tasks...
-                <FaRegSadCry className="emoji"/>
+                <FaRegSadCry className="emoji" />
               </p>
             )}
           </div>
