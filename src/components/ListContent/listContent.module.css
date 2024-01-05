@@ -1,5 +1,5 @@
-.contentContainer {
-  padding: 2rem 1rem;
+.taskContainer {
+  padding: 1rem;
   background-color: var(--card-background);
   box-shadow: 2px 2px 2px var(--dropshadow-dark);
   border-radius: 3px;
@@ -7,13 +7,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  gap: .5rem;
   transition: all .25s;
 }
 
 .contentText {
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-align: start;
@@ -22,23 +22,17 @@
   line-height: 1.2;
 
   flex: 1;
-  padding: 0.2rem 0.5rem;
+  padding: 0 0.5rem;
   border-radius: 3px;
 }
 
-.contentText:hover {
-  cursor: pointer;
-  background-color: var(--card-background);
-}
-
 .btnContainer {
+  /* display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: .5rem; */
   display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-}
-
-.btnContainer button:active {
-  background-color: var(--text);
+  align-items: center;
+  gap: .5rem;
 }
 
 .itemText {
@@ -46,10 +40,11 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .itemText input[type="text"] {
   padding: 0 0.5rem;
   flex: 1;
+  background-color: var(--text-accent);
 }

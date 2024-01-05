@@ -1,19 +1,43 @@
-import { FaCheck } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
-import styled from "./deleteModal.module.css"
+import { FaCheck } from "react-icons/fa";
+import styled from "./deleteModal.module.css";
 
-export const DeleteModal = () => {
+export const DeleteModal = ({ item, openModal, deleteTask }: any) => {
+  const handleEscape = (e: any) => {
+    e.key === "Escape" && openModal(item?.id);
+  };
+
   return (
-    <div className={styled.modalBg}>
-      <div className={styled.modal}>
-        <div className={styled.modalTitle}>
-          <h2>Sure you want to delete this task?</h2>
-        </div>
+    <div
+      className={styled.modalBg}
+      onKeyDown={handleEscape}
+      onClick={() => {
+        openModal(item?.id);
+      }}
+    >
+      <div
+        className={styled.modal}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
+        <h2> Sure to delete this task? </h2>
         <div className={styled.modalBtn}>
-          <button className="delete-button">
+          <button
+            className={styled.cancel}
+            onClick={() => {
+              openModal(item?.id);
+            }}
+          >
             <FaXmark />
           </button>
-          <button className="confirm-button">
+          <button
+            autoFocus={true}
+            className={styled.confirm}
+            onClick={() => {
+              deleteTask(item?.id);
+            }}
+          >
             <FaCheck />
           </button>
         </div>

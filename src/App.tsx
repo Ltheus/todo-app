@@ -5,6 +5,7 @@ import { FaListCheck } from "react-icons/fa6";
 import { FaRegSadCry, FaRegSmileWink } from "react-icons/fa";
 // import { DeleteModal } from "./components/DeleteModal/DeleteModal";
 import { TaskModal } from "./components/TaskModal/TaskModal";
+import { DeleteModal } from "./components/DeleteModal/DeleteModal";
 
 interface TodoProps {
   id: number;
@@ -12,6 +13,7 @@ interface TodoProps {
   isCompleted: boolean;
   isEditing: boolean;
   isOpen: boolean;
+  isDeleting: boolean;
 }
 
 function App() {
@@ -26,6 +28,7 @@ function App() {
         isCompleted: false,
         isEditing: false,
         isOpen: false,
+        isDeleting: false,
       },
       ...todos,
     ];
@@ -33,7 +36,8 @@ function App() {
     localStorage.setItem("TODO_LIST", JSON.stringify(newItems));
   };
 
-  const removeItem = (id: number) => { //passar  como prop pro modal de deleçao
+  const removeItem = (id: number) => {
+    //passar  como prop pro modal de deleçao
     const newItems = [...todos];
     const filteredItems = newItems.filter((item) =>
       item?.id !== id ? item : null
@@ -74,6 +78,15 @@ function App() {
     localStorage.setItem("TODO_LIST", JSON.stringify(todos));
   };
 
+  const deleteItem = (id: number) => {
+    const newItems = [...todos];
+    newItems.map(
+      (item) => item?.id === id && (item.isDeleting = !item?.isDeleting)
+    );
+    setTodos(newItems);
+    localStorage.setItem("TODO_LIST", JSON.stringify(todos));
+  };
+
   useEffect(() => {
     const data = window.localStorage.getItem("TODO_LIST");
     data !== null ? setTodos(JSON.parse(data)) : setTodos([]);
@@ -84,9 +97,22 @@ function App() {
   return (
     <div className="app-container">
       {todos.map(
-        (item : any) =>
+        (item: any) =>
           item?.isOpen && (
-            <TaskModal isOpen={item?.isOpen} openModal={openItem} item={item}> {item?.text} </TaskModal>
+            <TaskModal isOpen={item?.isOpen} openModal={openItem} item={item}>
+              {item?.text}
+            </TaskModal>
+          )
+      )}
+      {todos.map(
+        (item: any) =>
+          item?.isDeleting && (
+            <DeleteModal
+              isdeleting={item?.isDeleting}
+              openModal={deleteItem}
+              deleteTask={removeItem}
+              item={item}
+            />
           )
       )}
       <h1>
@@ -108,7 +134,8 @@ function App() {
                       <ListContent
                         key={item?.id}
                         item={item}
-                        removeItem={removeItem}
+                        deleteItem={deleteItem}
+                        // removeItem={removeItem}
                         completeItem={completeItem}
                         editItem={editItem}
                         submitItem={submitItem}
@@ -136,7 +163,8 @@ function App() {
                         <ListContent
                           key={item?.id}
                           item={item}
-                          removeItem={removeItem}
+                          deleteItem={deleteItem}
+                          // removeItem={removeItem}
                           completeItem={completeItem}
                           editItem={editItem}
                           submitItem={submitItem}
@@ -157,7 +185,7 @@ function App() {
         </div>
       ) : (
         <div className="no-task-title">
-          <h2> You've got no tasks</h2>
+          <h2> You've got no tasks!</h2>
           <p> Start adding some on the field above and get things done!</p>
         </div>
       )}

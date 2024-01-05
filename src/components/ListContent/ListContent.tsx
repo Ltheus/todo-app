@@ -1,40 +1,39 @@
-import { FaCheck, FaPencilAlt, FaTrash, FaUndo } from "react-icons/fa";
+import { FaCheck, FaEye, FaPencilAlt, FaTrash, FaUndo } from "react-icons/fa";
 import styled from "./listContent.module.css";
 import { useState } from "react";
-import { TaskModal } from "../TaskModal/TaskModal";
 
 export const ListContent = ({
   item,
-  removeItem,
+  // removeItem,
   completeItem,
   editItem,
   submitItem,
   openItem,
+  deleteItem,
 }: any) => {
-  const [text, setText] = useState(item.text);
+  const [text, setText] = useState(item?.text);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
     setText(e.target.value);
     item.text = text;
-    item.isEditing = !item.isEditing;
+    item.isEditing = !item?.isEditing;
     submitItem(text);
   };
 
   return (
     <>
-      <div className={styled.contentContainer}>
+      <div className={styled.taskContainer}>
         {!item.isEditing ? (
-          <div
-            className={styled.contentText}
-            onClick={() => openItem(item?.id)}
-          >
+          <div className={styled.contentText}>
             <p
               style={{
-                textDecoration: item.isCompleted ? "line-through" : "none",
+                textDecoration: item?.isCompleted
+                  ? "line-through var(--accent) "
+                  : "none",
               }}
             >
-              {item.text}
+              {item?.text}
             </p>
           </div>
         ) : (
@@ -54,12 +53,12 @@ export const ListContent = ({
               }}
             />
             <button
-              className="confirm-button"
+              className="edit-button"
               type="submit"
               onClick={handleSubmit}
               disabled={text == (null || "")}
             >
-              <FaCheck />
+              <FaPencilAlt />
             </button>
           </form>
         )}
@@ -67,27 +66,33 @@ export const ListContent = ({
           {!item?.isEditing && (
             <>
               <button
-                disabled={item.isEditing}
+                disabled={item?.isEditing}
                 className="confirm-button"
-                onClick={() => completeItem(item.id)}
+                onClick={() => completeItem(item?.id)}
               >
                 {!item?.isCompleted ? <FaCheck /> : <FaUndo />}
               </button>
               <button
-                disabled={item.isCompleted}
+                className="delete-button"
+                onClick={() => deleteItem(item?.id)}
+              >
+                <FaTrash />
+              </button>
+              <button
+                disabled={item?.isCompleted}
                 className="edit-button"
                 onClick={() => {
-                  editItem(item.id);
-                  setText(text == !null ? text : item.text);
+                  editItem(item?.id);
+                  setText(text == !null ? text : item?.text);
                 }}
               >
                 <FaPencilAlt />
               </button>
               <button
-                className="delete-button"
-                onClick={() => removeItem(item.id)}
+                className="view-button"
+                onClick={() => openItem(item?.id)}
               >
-                <FaTrash />
+                <FaEye />
               </button>
             </>
           )}

@@ -38,7 +38,7 @@ h2 {
   --secondary: hsl(43, 83%, 65%);
   --accent: hsl(47, 96%, 50%);
   --confirm: hsl(84, 60%, 52%);
-  --edit: hsl(193, 54%, 52%);
+  --edit: hsl(194, 58%, 60%);
   --delete: hsl(8, 64%, 52%);
   
   --card-background: hsla(40, 0%, 0%, 0.081);
@@ -112,12 +112,12 @@ h2 {
 }
 
 .todo-container {
-  color: var(--background);
-  background-color: var(--primary);
+    background-color: var(--background-accent);
+
 }
 
 .todo-container h2 {
-  border-bottom: solid 1px var(--background);
+  border-bottom: solid 1px var(--accent);
   text-shadow: 1px 2px 2px var(--dropshadow-dark);
 }
 
@@ -126,7 +126,7 @@ h2 {
 }
 
 .done-container h2 {
-  border-bottom: solid 1px var(--text);
+  border-bottom: solid 1px var(--accent);
 }
 
 ::-webkit-scrollbar {
@@ -134,20 +134,12 @@ h2 {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: transparent;
+  background-color: var(--card-background);
+  opacity: .5;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--background-accent);
-  border-radius: 3px;
-}
-
-.item-container-todo::-webkit-scrollbar-thumb {
-  background-color: var(--background-accent);
-  border-radius: 3px;
-}
-
-.item-container-done::-webkit-scrollbar-thumb {
   background-color: var(--primary);
   border-radius: 3px;
 }
@@ -184,6 +176,7 @@ button {
   outline: none;
   border: none;
   transition: all 0.25s;
+  background-color: transparent;
 }
 
 button:hover {
@@ -196,14 +189,29 @@ button:disabled:hover {
   opacity: 1;
 }
 
+button:focus{
+  color: var(--text);
+}
+
 .confirm-button {
-  background-color: var(--confirm);
+  /* border: solid 1px var(--confirm); */
+  color: var(--confirm);
+  font-size: 1.2rem;
 }
 .edit-button {
-  background-color: var(--edit);
+  /* border: solid 1px var(--edit); */
+  color: var(--edit);
+  font-size: 1.2rem;
 }
 .delete-button {
-  background-color: var(--delete);
+  /* border: solid 1px var(--delete); */
+  color: var(--delete);
+  font-size: 1.2rem;
+}
+.view-button {
+  /* border: solid 1px var(--accent); */
+  color: var(--accent);
+  font-size: 1.2rem;
 }
 
 .no-task-title {
@@ -214,6 +222,7 @@ button:disabled:hover {
   align-items: center;
   text-align: center;
   margin-top: 10rem;
+  line-height: 1.2;
 }
 
 .no-task-title h2 {
