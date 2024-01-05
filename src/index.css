@@ -1,134 +1,256 @@
-@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins:700|Poppins:400");
 
-:root {
-  /* !colors:  -------------------------------- */
-  --brand-color-light: hsl(275, 72%, 79%);
-  --brand-color-main: hsl(275, 90%, 48%);
-  --brand-color-dark: hsl(275, 94%, 28%);
-  /*!------------------------------------------ */
-  --sup-color-danger-light: hsl(7, 87%, 68%);
-  --sup-color-danger-main: hsl(7, 83%, 34%);
-  --sup-color-danger-dark: hsl(7, 88%, 22%);
-  /*!------------------------------------------ */
-  --sup-color-confirm-light: hsl(90, 100%, 65%);
-  --sup-color-confirm-main: hsl(90, 94%, 27%);
-  --sup-color-confirm-dark: hsl(90, 95%, 15%);
-  /*!------------------------------------------ */
-  --sup-color-warn-light: hsl(189, 81%, 61%);
-  --sup-color-warn-main: hsl(189, 61%, 41%);
-  --sup-color-warn-dark: hsl(189, 91%, 18%);
-  /*!------------------------------------------ */
-  --neutral-color-xlight: hsl(180, 2%, 76%);
-  --neutral-color-light: hsl(190, 4%, 40%);
-  --neutral-color-main: hsl(190, 6%, 30%);
-  --neutral-color-dark: hsl(190, 6%, 20%);
-  --neutral-color-xdark: hsl(190, 3%, 10%);
-
-  font-family: "Kanit", sans-serif;
-  line-height: 1.5;
-  font-weight: 200;
-  color: var(--neutral-color-xdark);
+html {
+  font-size: 16px;
+  background-color: var(--background);
 }
 
 body {
+  margin: 0.5rem;
+}
+
+h1 {
+  font-size: 2rem;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 1% 0;
-  background-color: var(--neutral-color-light);
+  justify-content: start;
+  gap: 0.5rem;
+  border-bottom: solid 1px var(--text);
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h1,
+h2 {
+  font-weight: 700;
+  text-shadow: 1px 2px 2px var(--dropshadow-light);
+  padding-bottom: 0.3rem;
+}
+
+:root {
+  --text: hsl(47, 12%, 91%);
+  --text-accent: hsl(43, 15%, 71%);
+  --background: hsl(43, 10%, 8%);
+  --background-accent: hsl(48, 2%, 23%);
+  --primary: hsl(43, 74%, 52%);
+  --secondary: hsl(43, 83%, 65%);
+  --accent: hsl(47, 96%, 50%);
+  --confirm: hsl(84, 60%, 52%);
+  --edit: hsl(194, 58%, 60%);
+  --delete: hsl(8, 64%, 52%);
+  
+  --card-background: hsla(40, 0%, 0%, 0.081);
+  --dropshadow-dark: hsla(40, 5%, 5%, 0.26);
+  --dropshadow-light: hsla(40, 35%, 95%, 0.3);
+
+  font-family: "Poppins";
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1;
+}
+
+#root {
+  width: 100%;
 }
 
 .app-container {
-  background-color: var(--brand-color-main);
-  min-height: 600px;
-  min-width: 600px;
-  border-radius: 15px;
-  padding: 5%;
-  box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.438);
+  padding: 0 1rem 1rem;
+  min-height: 50%;
+  max-height: 50%;
+}
 
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
+.form-container {
+  padding-top: 1rem;
 }
 
 .list-container {
   display: flex;
-  flex-direction: column;
-  justify-content: start;
-  margin: 1% 0;
-  min-height: 460px;
-  max-height: 460px;
+  min-height: 45rem;
+  max-height: 45rem;
+  gap: 1rem;
+}
+
+.content-container {
+  flex: 1;
+  margin: 1rem 0 0;
+  padding: 1rem;
+  border-radius: 3px;
+  min-width: 49.6%;
+  max-width: 49.6%;
+}
+
+.empty-card-message {
+  padding: 2.4rem 1rem;
+  margin: 0.5rem 0;
+  background-color: var(--card-background);
+  box-shadow: 2px 2px 2px var(--dropshadow-dark);
+  border-radius: 3px;
+
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.emoji {
+  font-size: 1.3rem;
+}
+
+.item-container {
   overflow-y: scroll;
   overflow-x: hidden;
+  margin: 0.5rem 0 0;
+  padding: 0 0.5rem 0.5rem;
+  max-height: 40rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.list-container::-webkit-scrollbar {
-  width: 8px;
+.todo-container {
+    background-color: var(--background-accent);
+
 }
 
-.list-container::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 20px;
+.todo-container h2 {
+  border-bottom: solid 1px var(--accent);
+  text-shadow: 1px 2px 2px var(--dropshadow-dark);
 }
 
-.list-container::-webkit-scrollbar-thumb {
-  background: var(--brand-color-dark);
-  border-radius: 20px;
+.done-container {
+  background-color: var(--background-accent);
 }
 
-h1 {
-  margin: 0;
-  font-size: 2.5em;
-  font-weight: 400;
-  border-bottom: 1px solid var(--neutral-color-xlight);
+.done-container h2 {
+  border-bottom: solid 1px var(--accent);
 }
 
-h2 {
-  margin: 0;
-  padding: 1% 0;
-  font-size: 1.8em;
-  font-weight: 300;
-  border-top: solid 1px var(--neutral-color-xlight);
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--card-background);
+  opacity: .5;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 3px;
 }
 
 input[type="text"] {
-  border-radius: 8px;
-  padding: 1%;
-  font-size: 1em;
-  font-weight: 200;
+  font-size: 0.8rem;
   font-family: inherit;
-  margin-bottom: 4%;
+  padding: 0.5rem;
+  border-radius: 3px;
+  outline: none;
+  border: none;
   transition: all 0.25s;
+  line-height: 0.8;
 }
+
 input[type="text"]:hover {
-  opacity: 0.8;
+  outline: solid 1px var(--accent);
 }
+
 input[type="text"]:focus,
 input[type="text"]:focus-visible {
-  outline: solid 2px var(--brand-color-dark);
-  opacity: 1;
+  outline: solid 1px var(--accent);
 }
 
 button {
-  border-radius: 10px;
-  font-size: 0.8em;
-  font-weight: 200;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all 0.25s;
+  font-size: 0.8rem;
+  text-align: center;
+  box-shadow: 2px 2px 2px --dropshadow-dark;
+
+  padding: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 3px;
+  outline: none;
   border: none;
+  transition: all 0.25s;
+  background-color: transparent;
 }
+
 button:hover {
-  opacity: 0.6;
+  opacity: 0.8;
+  cursor: pointer;
 }
-button:focus,
-button:focus-visible {
-  outline: transparent;
-}
-button:disabled {
-  background-color: var(--neutral-color-dark);
-}
+
 button:disabled:hover {
-  background-color: var(--neutral-color-dark);
+  cursor: not-allowed;
   opacity: 1;
+}
+
+button:focus{
+  color: var(--text);
+}
+
+.confirm-button {
+  /* border: solid 1px var(--confirm); */
+  color: var(--confirm);
+  font-size: 1.2rem;
+}
+.edit-button {
+  /* border: solid 1px var(--edit); */
+  color: var(--edit);
+  font-size: 1.2rem;
+}
+.delete-button {
+  /* border: solid 1px var(--delete); */
+  color: var(--delete);
+  font-size: 1.2rem;
+}
+.view-button {
+  /* border: solid 1px var(--accent); */
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+
+.no-task-title {
+  color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10rem;
+  line-height: 1.2;
+}
+
+.no-task-title h2 {
+  text-shadow: none;
+}
+
+@media (max-width: 900px) {
+  .app-container {
+    min-height: 30rem;
+    max-height: 30rem;
+  }
+  .list-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    min-height: 30%;
+  }
+  .content-container {
+    margin: 0.6rem 0.2rem;
+    padding: 1rem;
+    min-height: 19rem;
+    max-height: 19rem;
+    min-width: 100%;
+  }
+  .item-container {
+    max-height: 15.6rem;
+  }
+  .no-task-title p {
+    font-size: 0.8rem;
+  }
 }

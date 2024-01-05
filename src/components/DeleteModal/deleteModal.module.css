@@ -1,0 +1,72 @@
+.modalBg {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: var(--text);
+  color: var(--background);
+  border-radius: 3px;
+
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+
+  min-width: 12%;
+  max-width: 20%;
+
+  min-height: 10%;
+  max-height: 80%;
+
+  z-index: 1000;
+}
+
+.modal h2 {
+  border-bottom: solid 1px var(--background);
+  padding: 0;
+  width: 100%;
+}
+
+.modalBtn {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalBtn button {
+  border-radius: 3px;
+  padding: 0.5rem 1.5rem;
+  color: var(--background);
+  border: solid 1px var(--background);
+  font-size: 1.2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm:focus {
+  border: solid 1px var(--delete);
+  color: var(--delete);
+}
+
+@media (max-width: 900px) {
+  .modal {
+    margin: 0;
+    min-width: 70%;
+    max-width: 70%;
+  }
+}
