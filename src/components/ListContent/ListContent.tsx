@@ -29,7 +29,7 @@ export const ListContent = ({
             <p
               style={{
                 textDecoration: item?.isCompleted
-                  ? "line-through var(--accent) "
+                  ? "line-through var(--accent) 2px"
                   : "none",
               }}
             >
@@ -79,6 +79,12 @@ export const ListContent = ({
                 <FaTrash />
               </button>
               <button
+                className="view-button"
+                onClick={() => openItem(item?.id)}
+              >
+                <FaEye />
+              </button>
+              <button
                 disabled={item?.isCompleted}
                 className="edit-button"
                 onClick={() => {
@@ -87,12 +93,6 @@ export const ListContent = ({
                 }}
               >
                 <FaPencilAlt />
-              </button>
-              <button
-                className="view-button"
-                onClick={() => openItem(item?.id)}
-              >
-                <FaEye />
               </button>
             </>
           )}
