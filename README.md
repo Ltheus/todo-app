@@ -1,49 +1,58 @@
-# Documentação da Aplicação - Lista de Tarefas
+# TO-DO LIST - App documentation
+Developed by Matheus Lopes.
 
-Desenvolvido por Matheus Giusto Lopes.
+A simple to-do list aplication where the user can keep track of their daily tasks, adding tasks and marking them as done, as well as deleting, editing and vizualizing the items in more detail.
 
-Fazendo uso, principalmente, de ReactJS, TypeScript e CSS modules, a aplicação possui uma interface simples para a construção de uma lista de tarefas, com opções para **adicionar** itens, assim como **concluir, editar e deletá-los**.
 
-## Funcionalidades
-Ao acessar pela primeira vez, o usuário verá a lista de tarefas vazia, com a opção de **adicionar** uma tarefa, digitando o título e clicando no botão com um sinal de **"+"** ou a tecla *enter*. Após criar uma tarefa, o usuário terá três opções de interação:
- - ### Concluir a terefa:
-    - Clicando no botão **verde** abaixo do título da tarefa, o usuário pode **marcá-la como concluída** (visualmente representada pelo texto verde). Essa ação **desabilita** o botão de **edição** (azul). Clicar no botão novamente **desmarca** a tarefa e **re-habilita** o botão de edição.
- - ### Editar a tarefa:
-    - Clicando no botão **azul**, os botões são **desabilitados** e o título do item se torna um campo para o usuário digitar, **editando** a tarefa. O novo texto pode ser salvo clicando no botão de **salvar** (disquete roxo) ou a tecla *enter*.
- - ### Deletar a tarefa:
-    - Clicando no botão **vermelho**, o usuário **deleta** a tarefa e o item é **apagado** da lista. 
-      - Atenção: essa ação **não** pode ser desfeita e, caso o usuário delete uma tarefa indesejada, deverá adicioná-la novamente pela função de criar tarefa.
-### Importante:
- - A partir da **quarta** tarefa, novos itens serão adicionados sem serem exibidos diretamente, mas habilitando uma barra de rolagem dentro da interface da aplicação, para que o usuário possa navegar entre suas tarefas.
- - Esta aplicação foi desenvolvida com fins educacionais, portanto **não** é recomendado seu uso no dia-a-dia.
+## Technologies used
+   - ReactJS;
+   - TypeScript;
+   - CSS Modules.
+
+## Functionalities
+Opening the aplication for the first time will show you a empty list with a blank *"NEW TASK"* field where you can type your first task. To start, type something on that field.
+
+### Once you added your first task, there are 4 main actions to take:
+ - ### Mark it as done:
+    - Clicking the **green checkmark** icon will mark the task as done, moving it from the *"TO-DO"* field to the *"DONE"* field. Clicking on the **green arrow** will move it back to *"TO-DO"*.
+ - ### Delete it:
+    - Clicking the **red trashcan** icon will open a confirmation modal asking if you want to delete the task: Click on the checkmark button to confirm and delete.
+      - Be aware that this action **can't** be undone and if you delete the wrong task you must add a new one using the *"NEW TASK"* field.
+ - ### Open it:
+   - Clicking the **yellow eye** icon will open a modal for visualization, where you can see the entire item text. Clicking the X mark on the top-right corner closes the modal.
+ - ### Edit it:
+   - Clicking the **blue pencil** icon will show a field over the item's task, where you can type to edit it. Pressing Enter submit's the new text and saves the edited item.
+### Important:
+ - After **nine** items added to either the *"TO-DO"* or the *"DONE"* fields, a scrollbar will appear an the older items can be viewed by scrolling down the list.
+ - This aplication was developed with study purposes and is **not** recommended for professional use.
 
 ---
 
-## Instalação e execução
-Para instalar a aplicação, basta seguir o passo-a-passo:
+## Instalation and execution
+To install the app, follow this simple 3-step guide:
    
-1. Escolha a pasta ou diretório em seu computador no qual deseja fazer a instalação.
-2. Na pasta selecionada, abra um terminal bash e execute os seguintes comandos:
+1. First choose the folder where you want to install it;
+2. Once you chose a folder, open a bash terminal and type the following commands:
    
-   1. Clonando o repositório:
+   1. Clone the git repository:
 
       `git clone https://github.com/Ltheus/todo-app.git`
    
-   2. Acessando o diretório da aplicação: 
+   2. Acess the aplication's directory: 
 
       `cd todo-app`
    
-   3. Instalando as dependências do **NodeJS**\*, utilizando **npm**\*:
+   3. Installing **NodeJS**'s\* dependencys, using **npm**\*:
 
       `npm install`
 
-   4. Rodando a aplicação:
+   4. Running the aplication:
 
       `npm run dev`
 
-3. Após rodar a aplicação, acesse a URL que aparecerá no terminal ou clique [aqui](http://localhost:5173/).
+3. After running it, click the link that appears on the terminal, or click [here](http://localhost:5173/).
  
- <sub>\* Caso não possua o NodeJS instalado, clique [aqui](https://nodejs.org/en/download/current) e instale  a versão mais recente (LTS).</sub>
+ <sub>\* In case you don't have NodeJS installed, click [here](https://nodejs.org/en/download/current) and install the LTS release.</sub>
  
- <sup>\** Caso não possua o npm instalado, clique [aqui](https://www.npmjs.com/package/npm) e siga os passos para a instalação.
+ <sup>\** In case you don't have npm installed, click [here](https://www.npmjs.com/package/npm) and follow the steps to install it.
 </sup>
