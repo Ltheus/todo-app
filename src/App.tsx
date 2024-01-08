@@ -119,20 +119,14 @@ function App() {
         <FaListCheck />
         TO-DO LIST
       </h1>
-      {todos.length == 0 && (
         <div className="form-container">
           <ListForm addItem={addItem} />
         </div>
-      )}
       {todos?.length !== 0 ? (
         <>
           <div className="list-container">
             <div className="content-container todo-container">
               <h2>TO-DO</h2>
-              <div className="form-container">
-                <ListForm addItem={addItem} />
-              </div>
-
               {todos.some((item: any) => !item?.isCompleted) ? (
                 <div className="item-container item-container-todo">
                   {todos.map((item: any) =>
