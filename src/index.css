@@ -193,22 +193,22 @@ button:focus{
 }
 
 .confirm-button {
-  /* border: solid 1px var(--confirm); */
   color: var(--confirm);
   font-size: 1.2rem;
 }
 .edit-button {
-  /* border: solid 1px var(--edit); */
   color: var(--edit);
   font-size: 1.2rem;
 }
+.edit-button:disabled{
+  opacity: .3;
+}
+
 .delete-button {
-  /* border: solid 1px var(--delete); */
   color: var(--delete);
   font-size: 1.2rem;
 }
 .view-button {
-  /* border: solid 1px var(--accent); */
   color: var(--accent);
   font-size: 1.2rem;
 }
