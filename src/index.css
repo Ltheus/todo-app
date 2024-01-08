@@ -41,7 +41,9 @@ h2 {
   --edit: hsl(194, 58%, 60%);
   --delete: hsl(8, 64%, 52%);
 
-  --card-background: hsla(40, 0%, 0%, 0.081);
+  --card-background: hsla(40, 1%, 20%, 0.5);
+  --todo-card-background:  hsl(43, 74%, 52%, 0.075);
+  --done-card-background: hsl(84, 60%, 52%, .075);
   --dropshadow-dark: hsla(40, 5%, 5%, 0.26);
   --dropshadow-light: hsla(40, 35%, 95%, 0.3);
 
@@ -111,6 +113,10 @@ h2 {
   gap: 0.5rem;
 }
 
+/*! .item-container-todo{
+/*!  max-height: 20rem;
+/*! } */
+
 .todo-container {
   background-color: var(--background-accent);
   color: var(--text);
@@ -134,7 +140,7 @@ h2 {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--card-background);
+  background-color: var(--todo-card-background);
   opacity: 0.5;
   border-radius: 3px;
 }
@@ -146,6 +152,10 @@ h2 {
 
 .item-container-done::-webkit-scrollbar-thumb {
   background-color: var(--confirm);
+}
+
+.item-container-done::-webkit-scrollbar-track {
+  background-color: var(--done-card-background);
 }
 
 input[type="text"] {

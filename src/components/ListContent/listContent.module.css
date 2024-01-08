@@ -1,6 +1,6 @@
 .taskContainer {
   padding: 1rem;
-  background-color: var(--card-background);
+  background-color: var(--todo-card-background);
   box-shadow: 2px 2px 2px var(--dropshadow-dark);
   border-radius: 3px;
 
@@ -12,7 +12,7 @@
 }
 
 .doneTaskContainer{
-  background-color:  hsl(84, 60%, 52%, .075);
+  background-color:  var(--done-card-background);
 }
 
 .contentText {
