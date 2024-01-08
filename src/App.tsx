@@ -92,8 +92,6 @@ function App() {
     data !== null ? setTodos(JSON.parse(data)) : setTodos([]);
   }, []);
 
-  //! render start --------------------------------------------------------------------------------
-
   return (
     <div className="app-container">
       {todos.map(
@@ -129,31 +127,39 @@ function App() {
           <div className="list-container">
             <div className="content-container todo-container">
               <h2>TO-DO</h2>
-              <div className="form-container">
-                <ListForm addItem={addItem} />
-              </div>
-
               {todos.some((item: any) => !item?.isCompleted) ? (
-                <div className="item-container item-container-todo">
-                  {todos.map((item: any) =>
-                    !item?.isCompleted ? (
-                      <ListContent
-                        key={item?.id}
-                        item={item}
-                        deleteItem={deleteItem}
-                        completeItem={completeItem}
-                        editItem={editItem}
-                        submitItem={submitItem}
-                        openItem={openItem}
-                      />
-                    ) : null
-                  )}
-                </div>
+                <>
+                  <div className="item-container item-container-todo">
+                    <div className="form-container">
+                      <ListForm addItem={addItem} />
+                    </div>
+                    {todos.map((item: any) =>
+                      !item?.isCompleted ? (
+                        <ListContent
+                          key={item?.id}
+                          item={item}
+                          deleteItem={deleteItem}
+                          completeItem={completeItem}
+                          editItem={editItem}
+                          submitItem={submitItem}
+                          openItem={openItem}
+                        />
+                      ) : null
+                    )}
+                  </div>
+                </>
               ) : (
-                <p className="empty-card-message">
-                  You got everything done!
-                  <FaRegSmileWink className="emoji" />
-                </p>
+                <>
+                  <div className="empty-card">
+                    <div className="form-container">
+                      <ListForm addItem={addItem} />
+                    </div>
+                    <p className="empty-card-message">
+                      You got everything done!
+                      <FaRegSmileWink className="emoji" />
+                    </p>
+                  </div>
+                </>
               )}
             </div>
             <div className="content-container done-container">
