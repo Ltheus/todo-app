@@ -25,16 +25,15 @@ export const ListContent = ({
     <>
       <div
         className={`${styled.taskContainer} ${
-          !item?.isCompleted && styled.todoTaskContainer 
+          item?.isCompleted && styled.doneTaskContainer
         }`}
       >
         {!item.isEditing ? (
           <div className={styled.contentText}>
             <p
               style={{
-                textDecoration: item?.isCompleted
-                  ? "line-through var(--accent) "
-                  : "none",
+                color: item?.isCompleted ? "var(--confirm)" : "none",
+                textDecoration: item?.isCompleted ? "line-through 2px var(--confirm)" : "none",
               }}
             >
               {item?.text}
