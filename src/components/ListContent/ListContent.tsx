@@ -82,6 +82,12 @@ export const ListContent = ({
                 <FaTrash />
               </button>
               <button
+                className="view-button"
+                onClick={() => openItem(item?.id)}
+              >
+                <FaEye />
+              </button>
+              {!item?.isCompleted ? <button
                 disabled={item?.isCompleted}
                 className="edit-button"
                 onClick={() => {
@@ -90,13 +96,7 @@ export const ListContent = ({
                 }}
               >
                 <FaPencilAlt />
-              </button>
-              <button
-                className="view-button"
-                onClick={() => openItem(item?.id)}
-              >
-                <FaEye />
-              </button>
+              </button> : null}
             </>
           )}
         </div>
