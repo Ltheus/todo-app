@@ -112,7 +112,8 @@ h2 {
 }
 
 .todo-container {
-    background-color: var(--background-accent);
+    background-color: var(--secondary);
+    color: var(--background);
 
 }
 
