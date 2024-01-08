@@ -119,15 +119,21 @@ function App() {
         <FaListCheck />
         TO-DO LIST
       </h1>
-      <div className="form-container">
-        <ListForm addItem={addItem} />
-      </div>
+      {todos.length == 0 && (
+        <div className="form-container">
+          <ListForm addItem={addItem} />
+        </div>
+      )}
       {todos?.length !== 0 ? (
-        <div className="list-container">
-          <div className="content-container todo-container">
-            <h2>TO-DO</h2>
-            {todos.some((item: any) => !item?.isCompleted) ? (
-              <>
+        <>
+          <div className="list-container">
+            <div className="content-container todo-container">
+              <h2>TO-DO</h2>
+              <div className="form-container">
+                <ListForm addItem={addItem} />
+              </div>
+
+              {todos.some((item: any) => !item?.isCompleted) ? (
                 <div className="item-container item-container-todo">
                   {todos.map((item: any) =>
                     !item?.isCompleted ? (
@@ -135,7 +141,6 @@ function App() {
                         key={item?.id}
                         item={item}
                         deleteItem={deleteItem}
-                        // removeItem={removeItem}
                         completeItem={completeItem}
                         editItem={editItem}
                         submitItem={submitItem}
@@ -144,45 +149,45 @@ function App() {
                     ) : null
                   )}
                 </div>
-              </>
-            ) : (
-              <p className="empty-card-message">
-                You got everything done!
-                <FaRegSmileWink className="emoji" />
-              </p>
-            )}
+              ) : (
+                <p className="empty-card-message">
+                  You got everything done!
+                  <FaRegSmileWink className="emoji" />
+                </p>
+              )}
+            </div>
+            <div className="content-container done-container">
+              <h2>DONE</h2>
+              {todos.some((item: any) => item?.isCompleted) ? (
+                <>
+                  <div className="item-container item-container-done">
+                    {todos.map((item: any) =>
+                      item?.isCompleted ? (
+                        <>
+                          <ListContent
+                            key={item?.id}
+                            item={item}
+                            deleteItem={deleteItem}
+                            // removeItem={removeItem}
+                            completeItem={completeItem}
+                            editItem={editItem}
+                            submitItem={submitItem}
+                            openItem={openItem}
+                          />
+                        </>
+                      ) : null
+                    )}
+                  </div>
+                </>
+              ) : (
+                <p className="empty-card-message">
+                  You haven't completed any tasks...
+                  <FaRegSadCry className="emoji" />
+                </p>
+              )}
+            </div>
           </div>
-          <div className="content-container done-container">
-            <h2>DONE</h2>
-            {todos.some((item: any) => item?.isCompleted) ? (
-              <>
-                <div className="item-container item-container-done">
-                  {todos.map((item: any) =>
-                    item?.isCompleted ? (
-                      <>
-                        <ListContent
-                          key={item?.id}
-                          item={item}
-                          deleteItem={deleteItem}
-                          // removeItem={removeItem}
-                          completeItem={completeItem}
-                          editItem={editItem}
-                          submitItem={submitItem}
-                          openItem={openItem}
-                        />
-                      </>
-                    ) : null
-                  )}
-                </div>
-              </>
-            ) : (
-              <p className="empty-card-message">
-                You haven't completed any tasks...
-                <FaRegSadCry className="emoji" />
-              </p>
-            )}
-          </div>
-        </div>
+        </>
       ) : (
         <div className="no-task-title">
           <h2> You've got no tasks!</h2>
