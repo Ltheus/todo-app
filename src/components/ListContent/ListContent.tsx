@@ -23,7 +23,11 @@ export const ListContent = ({
 
   return (
     <>
-      <div className={styled.taskContainer}>
+      <div
+        className={`${styled.taskContainer} ${
+          !item?.isCompleted && styled.todoTaskContainer 
+        }`}
+      >
         {!item.isEditing ? (
           <div className={styled.contentText}>
             <p
