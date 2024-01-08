@@ -4,7 +4,6 @@ import { useState } from "react";
 
 export const ListContent = ({
   item,
-  // removeItem,
   completeItem,
   editItem,
   submitItem,
