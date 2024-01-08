@@ -21,7 +21,7 @@ export const DeleteModal = ({ item, openModal, deleteTask }: any) => {
           e.stopPropagation();
         }}
       >
-        <h2> Sure to delete this task? </h2>
+        <h2> Want to delete this task? </h2>
         <div className={styled.modalBtn}>
           <button
             className={styled.cancel}

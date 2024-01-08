@@ -25,9 +25,9 @@
   gap: 2rem;
 
   min-width: 12%;
-  max-width: 20%;
+  max-width: 30%;
 
-  min-height: 10%;
+  min-height: 20%;
   max-height: 80%;
 
 }
@@ -35,6 +35,7 @@
 .modal h2 {
   border-bottom: solid 1px var(--background);
   padding: 0;
+  padding-bottom: .3rem;
   width: 100%;
 }
 
