@@ -32,7 +32,7 @@ export const ListContent = ({
             <p
               style={{
                 color: item?.isCompleted ? "var(--confirm)" : "none",
-                textDecoration: item?.isCompleted ? "line-through 2px var(--confirm)" : "none",
+                textDecoration: item?.isCompleted ? "line-through 2px var(--confirm)" : "none"
               }}
             >
               {item?.text}
