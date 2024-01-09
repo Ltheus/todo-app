@@ -40,8 +40,10 @@ h2 {
   --confirm: hsl(84, 60%, 52%);
   --edit: hsl(194, 58%, 60%);
   --delete: hsl(8, 64%, 52%);
-  
-  --card-background: hsla(40, 0%, 0%, 0.081);
+
+  --card-background: hsla(40, 1%, 20%, 0.5);
+  --todo-card-background:  hsl(43, 74%, 52%, 0.075);
+  --done-card-background: hsl(84, 60%, 52%, .075);
   --dropshadow-dark: hsla(40, 5%, 5%, 0.26);
   --dropshadow-light: hsla(40, 35%, 95%, 0.3);
 
@@ -81,6 +83,11 @@ h2 {
   max-width: 49.6%;
 }
 
+.empty-card{
+  margin-top: .5rem;
+  padding-right: 1rem;
+}
+
 .empty-card-message {
   padding: 2.4rem 1rem;
   margin: 0.5rem 0;
@@ -102,8 +109,8 @@ h2 {
 .item-container {
   overflow-y: scroll;
   overflow-x: hidden;
-  margin: 0.5rem 0 0;
-  padding: 0 0.5rem 0.5rem;
+  margin-top: .5rem;
+  padding: 0 .5rem .5rem 0;
   max-height: 40rem;
 
   display: flex;
@@ -112,11 +119,11 @@ h2 {
 }
 
 .todo-container {
-    background-color: var(--background-accent);
-
+  background-color: var(--background-accent);
+  color: var(--text);
 }
 
-.todo-container h2 {
+.todo-container > h2 {
   border-bottom: solid 1px var(--accent);
 }
 
@@ -125,7 +132,7 @@ h2 {
 }
 
 .done-container h2 {
-  border-bottom: solid 1px var(--accent);
+  border-bottom: solid 1px var(--confirm);
 }
 
 ::-webkit-scrollbar {
@@ -133,14 +140,22 @@ h2 {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--card-background);
-  opacity: .5;
+  background-color: var(--todo-card-background);
+  opacity: 0.5;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--primary);
   border-radius: 3px;
+}
+
+.item-container-done::-webkit-scrollbar-thumb {
+  background-color: var(--confirm);
+}
+
+.item-container-done::-webkit-scrollbar-track {
+  background-color: var(--done-card-background);
 }
 
 input[type="text"] {
@@ -186,10 +201,6 @@ button:hover {
 button:disabled:hover {
   cursor: not-allowed;
   opacity: 1;
-}
-
-button:focus{
-  color: var(--text);
 }
 
 .confirm-button {

@@ -9,6 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
 .modal {
@@ -24,17 +25,17 @@
   gap: 2rem;
 
   min-width: 12%;
-  max-width: 20%;
+  max-width: 30%;
 
-  min-height: 10%;
+  min-height: 20%;
   max-height: 80%;
 
-  z-index: 1000;
 }
 
 .modal h2 {
   border-bottom: solid 1px var(--background);
   padding: 0;
+  padding-bottom: .3rem;
   width: 100%;
 }
 
@@ -58,9 +59,10 @@
   align-items: center;
 }
 
-.confirm:focus {
+.modalBtn button:focus {
   border: solid 1px var(--delete);
-  color: var(--delete);
+  background-color: var(--delete);
+  color: var(--text);
 }
 
 @media (max-width: 900px) {

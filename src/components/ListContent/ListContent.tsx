@@ -4,7 +4,6 @@ import { useState } from "react";
 
 export const ListContent = ({
   item,
-  // removeItem,
   completeItem,
   editItem,
   submitItem,
@@ -23,14 +22,17 @@ export const ListContent = ({
 
   return (
     <>
-      <div className={styled.taskContainer}>
+      <div
+        className={`${styled.taskContainer} ${
+          item?.isCompleted && styled.doneTaskContainer
+        }`}
+      >
         {!item.isEditing ? (
           <div className={styled.contentText}>
             <p
               style={{
-                textDecoration: item?.isCompleted
-                  ? "line-through var(--accent) 2px"
-                  : "none",
+                color: item?.isCompleted ? "var(--confirm)" : "none",
+                textDecoration: item?.isCompleted ? "line-through 2px var(--confirm)" : "none"
               }}
             >
               {item?.text}
@@ -84,7 +86,7 @@ export const ListContent = ({
               >
                 <FaEye />
               </button>
-              <button
+              {!item?.isCompleted ? <button
                 disabled={item?.isCompleted}
                 className="edit-button"
                 onClick={() => {
@@ -93,7 +95,7 @@ export const ListContent = ({
                 }}
               >
                 <FaPencilAlt />
-              </button>
+              </button> : null}
             </>
           )}
         </div>
