@@ -118,11 +118,11 @@ function App() {
         TO-DO LIST
       </h1>
 
-      {todos?.length === 0 ? (
+      {todos?.length === 0 && (
         <div className="form-container">
           <ListForm addItem={addItem} />
         </div>
-      ) : null}
+      )}
 
       {todos?.length !== 0 ? (
         <>
