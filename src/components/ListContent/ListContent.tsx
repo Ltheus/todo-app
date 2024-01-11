@@ -1,6 +1,7 @@
 import { FaCheck, FaEye, FaPencilAlt, FaTrash, FaUndo } from "react-icons/fa";
 import styled from "./listContent.module.css";
 import { useState } from "react";
+import { Button } from "../Button/Button";
 
 export const ListContent = ({
   item,
@@ -32,7 +33,9 @@ export const ListContent = ({
             <p
               style={{
                 color: item?.isCompleted ? "var(--confirm)" : "none",
-                textDecoration: item?.isCompleted ? "line-through 2px var(--confirm)" : "none"
+                textDecoration: item?.isCompleted
+                  ? "line-through 2px var(--confirm)"
+                  : "none",
               }}
             >
               {item?.text}
@@ -54,48 +57,50 @@ export const ListContent = ({
                 item.text = text;
               }}
             />
-            <button
-              className="edit-button"
+            <Button
+              className={styled.editButton}
               type="submit"
               onClick={handleSubmit}
               disabled={text == (null || "")}
             >
               <FaPencilAlt />
-            </button>
+            </Button>
           </form>
         )}
         <div className={styled.btnContainer}>
           {!item?.isEditing && (
             <>
-              <button
+              <Button
                 disabled={item?.isEditing}
-                className="confirm-button"
+                className={styled.confirmButton}
                 onClick={() => completeItem(item?.id)}
               >
                 {!item?.isCompleted ? <FaCheck /> : <FaUndo />}
-              </button>
-              <button
-                className="delete-button"
+              </Button>
+              <Button
+                className={styled.deleteButton}
                 onClick={() => deleteItem(item?.id)}
               >
                 <FaTrash />
-              </button>
-              <button
-                className="view-button"
+              </Button>
+              <Button
+                className={styled.viewButton}
                 onClick={() => openItem(item?.id)}
               >
                 <FaEye />
-              </button>
-              {!item?.isCompleted ? <button
-                disabled={item?.isCompleted}
-                className="edit-button"
-                onClick={() => {
-                  editItem(item?.id);
-                  setText(text == !null ? text : item?.text);
-                }}
-              >
-                <FaPencilAlt />
-              </button> : null}
+              </Button>
+              {!item?.isCompleted ? (
+                <Button
+                  disabled={item?.isCompleted}
+                  className={styled.editButton}
+                  onClick={() => {
+                    editItem(item?.id);
+                    setText(text == !null ? text : item?.text);
+                  }}
+                >
+                  <FaPencilAlt />
+                </Button>
+              ) : null}
             </>
           )}
         </div>

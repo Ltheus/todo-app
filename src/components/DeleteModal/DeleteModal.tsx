@@ -1,6 +1,7 @@
 import { FaXmark } from "react-icons/fa6";
 import { FaCheck } from "react-icons/fa";
 import styled from "./deleteModal.module.css";
+import { Button } from "../Button/Button";
 
 export const DeleteModal = ({ item, openModal, deleteTask }: any) => {
   const handleEscape = (e: any) => {
@@ -23,15 +24,15 @@ export const DeleteModal = ({ item, openModal, deleteTask }: any) => {
       >
         <h2> Do you want to delete this task? </h2>
         <div className={styled.modalBtn}>
-          <button
+          <Button
             className={styled.cancel}
             onClick={() => {
               openModal(item?.id);
             }}
           >
             <FaXmark />
-          </button>
-          <button
+          </Button>
+          <Button
             autoFocus={true}
             className={styled.confirm}
             onClick={() => {
@@ -39,7 +40,7 @@ export const DeleteModal = ({ item, openModal, deleteTask }: any) => {
             }}
           >
             <FaCheck />
-          </button>
+          </Button>
         </div>
       </div>
     </div>

@@ -36,6 +36,25 @@
   gap: .5rem;
 }
 
+.confirmButton {
+  color: var(--confirm);
+  font-size: 1.2rem;
+}
+.editButton {
+  color: var(--edit);
+  font-size: 1.2rem;
+}
+
+.deleteButton {
+  color: var(--delete);
+  font-size: 1.2rem;
+}
+
+.viewButton {
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+
 .itemText {
   width: 100%;
   display: flex;
