@@ -115,26 +115,21 @@ function App() {
       )}
       <h1>
         <FaListCheck />
-        TO-DO LIST
+        LISTA DE TAREFAS
       </h1>
 
-      {todos?.length === 0 && (
-        <div className="form-container">
-          <ListForm addItem={addItem} />
-        </div>
-      )}
+      <div className="form-container">
+        <ListForm addItem={addItem} />
+      </div>
 
       {todos?.length !== 0 ? (
         <>
           <div className="list-container">
             <div className="content-container todo-container">
-              <h2>TO-DO</h2>
+              <h2>A FAZER</h2>
               {todos.some((item: any) => !item?.isCompleted) ? (
                 <>
                   <div className="item-container item-container-todo">
-                    <div className="form-container">
-                      <ListForm addItem={addItem} />
-                    </div>
                     {todos.map((item: any) =>
                       !item?.isCompleted ? (
                         <ListContent
@@ -153,11 +148,8 @@ function App() {
               ) : (
                 <>
                   <div className="empty-card">
-                    <div className="form-container">
-                      <ListForm addItem={addItem} />
-                    </div>
                     <p className="empty-card-message">
-                      You got everything done!
+                      Você conclui todas as tarefas!
                       <FaRegSmileWink className="emoji" />
                     </p>
                   </div>
@@ -165,7 +157,7 @@ function App() {
               )}
             </div>
             <div className="content-container done-container">
-              <h2>DONE</h2>
+              <h2>CONCLUÍDAS</h2>
               {todos.some((item: any) => item?.isCompleted) ? (
                 <>
                   <div className="item-container item-container-done">
@@ -176,7 +168,6 @@ function App() {
                             key={item?.id}
                             item={item}
                             deleteItem={deleteItem}
-                            // removeItem={removeItem}
                             completeItem={completeItem}
                             editItem={editItem}
                             submitItem={submitItem}
@@ -189,7 +180,7 @@ function App() {
                 </>
               ) : (
                 <p className="empty-card-message">
-                  You haven't completed any tasks...
+                  Você ainda não completou nenhuma tarefa...
                   <FaRegSadCry className="emoji" />
                 </p>
               )}
@@ -198,8 +189,8 @@ function App() {
         </>
       ) : (
         <div className="no-task-title">
-          <h2> You've got no tasks!</h2>
-          <p> Start adding some on the field above and get things done!</p>
+          <h2> Você ainda não tem tarefas adicionadas</h2>
+          <p> Comece adicionando alguma e organize seu dia!</p>
         </div>
       )}
     </div>

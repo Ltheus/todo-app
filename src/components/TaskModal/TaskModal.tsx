@@ -16,7 +16,7 @@ export const TaskModal = ({ openModal, item, children }: any) => {
         }}
       >
         <div className={styled.modalBtn}>
-          <h2> TASK </h2>
+          <h2> TAREFA </h2>
           <button
             className="delete-button"
             onClick={() => {
