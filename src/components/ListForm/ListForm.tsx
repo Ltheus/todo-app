@@ -18,12 +18,12 @@ export const ListForm = ({ addItem }: any) => {
 
   return (
     <div className={styled.todoForm}>
-      <h2>NEW TASK</h2>
+      <h2>NOVA TAREFA</h2>
       <form onSubmit={handleSubmit} id="addForm" name="addForm">
         <input
           id="addInput"
           type="text"
-          placeholder="Type here"
+          placeholder="Digite aqui"
           value={title}
           onChange={handleChange}
         />
