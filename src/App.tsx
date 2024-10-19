@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ListContent } from "./components/ListContent/ListContent";
 import { ListForm } from "./components/ListForm/ListForm";
 import { FaListCheck } from "react-icons/fa6";
-import { FaRegSadCry, FaRegSmileWink } from "react-icons/fa";
+import { FaRegSadCry, FaRegSmileWink, FaSearch } from "react-icons/fa";
 // import { DeleteModal } from "./components/DeleteModal/DeleteModal";
 import { TaskModal } from "./components/TaskModal/TaskModal";
 import { DeleteModal } from "./components/DeleteModal/DeleteModal";
@@ -18,14 +18,17 @@ interface TodoProps {
 
 function App() {
   const [todos, setTodos] = useState<TodoProps | any>([]);
+  const [query, setQuery] = useState("");
+  const searchIcon = <FaSearch />;
 
-  const addItem = (title: any) => {
+  const addItem = (title: string, status: boolean) => {
     const itemTitle = title;
+    const itemStatus = status;
     const newItems: any = [
       {
         id: Math.floor(Math.random() * 10000),
         text: itemTitle,
-        isCompleted: false,
+        isCompleted: itemStatus,
         isEditing: false,
         isOpen: false,
         isDeleting: false,
@@ -37,7 +40,6 @@ function App() {
   };
 
   const removeItem = (id: number) => {
-    //passar  como prop pro modal de deleçao
     const newItems = [...todos];
     const filteredItems = newItems.filter((item) =>
       item?.id !== id ? item : null
@@ -113,9 +115,19 @@ function App() {
             />
           )
       )}
-      <h1>
-        <FaListCheck />
-        LISTA DE TAREFAS
+      <h1 className="title-container">
+        <div className="search-container">
+          <FaListCheck />
+          LISTA DE TAREFAS
+        </div>
+        <div className="search-container">
+          {searchIcon}
+          <input
+            type="text"
+            placeholder={`Pesquisar tarefa`}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+        </div>
       </h1>
 
       <div className="form-container">
@@ -130,19 +142,23 @@ function App() {
               {todos.some((item: any) => !item?.isCompleted) ? (
                 <>
                   <div className="item-container item-container-todo">
-                    {todos.map((item: any) =>
-                      !item?.isCompleted ? (
-                        <ListContent
-                          key={item?.id}
-                          item={item}
-                          deleteItem={deleteItem}
-                          completeItem={completeItem}
-                          editItem={editItem}
-                          submitItem={submitItem}
-                          openItem={openItem}
-                        />
-                      ) : null
-                    )}
+                    {todos
+                      .filter((item: any) =>
+                        item.text.toLowerCase().includes(query)
+                      )
+                      .map((item: any) =>
+                        !item?.isCompleted ? (
+                          <ListContent
+                            key={item?.id}
+                            item={item}
+                            deleteItem={deleteItem}
+                            completeItem={completeItem}
+                            editItem={editItem}
+                            submitItem={submitItem}
+                            openItem={openItem}
+                          />
+                        ) : null
+                      )}
                   </div>
                 </>
               ) : (
@@ -161,21 +177,25 @@ function App() {
               {todos.some((item: any) => item?.isCompleted) ? (
                 <>
                   <div className="item-container item-container-done">
-                    {todos.map((item: any) =>
-                      item?.isCompleted ? (
-                        <>
-                          <ListContent
-                            key={item?.id}
-                            item={item}
-                            deleteItem={deleteItem}
-                            completeItem={completeItem}
-                            editItem={editItem}
-                            submitItem={submitItem}
-                            openItem={openItem}
-                          />
-                        </>
-                      ) : null
-                    )}
+                    {todos
+                      .filter((item: any) =>
+                        item.text.toLowerCase().includes(query)
+                      )
+                      .map((item: any) =>
+                        item?.isCompleted ? (
+                          <>
+                            <ListContent
+                              key={item?.id}
+                              item={item}
+                              deleteItem={deleteItem}
+                              completeItem={completeItem}
+                              editItem={editItem}
+                              submitItem={submitItem}
+                              openItem={openItem}
+                            />
+                          </>
+                        ) : null
+                      )}
                   </div>
                 </>
               ) : (

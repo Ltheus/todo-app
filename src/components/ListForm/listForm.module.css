@@ -29,6 +29,17 @@
   border-radius: 0;
 }
 
+.todoForm select {
+  font-size: 0.8rem;
+  font-family: inherit;
+  padding: 0.5rem;
+  border-radius: 3px;
+  border: solid 1px var(--text-accent);
+  background-color: var(--text);
+  box-shadow: 2px 2px 3px var(--dropshadow-dark);
+  line-height: 0.8;
+}
+
 .todoForm button {
   box-shadow: 2px 2px 3px var(--dropshadow-dark);
   background-color: var(--primary);
