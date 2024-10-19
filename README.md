@@ -1,66 +1,67 @@
-# TO-DO LIST - App documentation
-Developed by Matheus Lopes.
+# LISTA DE TAREFAS - Documentação
 
-A simple to-do list aplication where the user can keep track of their daily tasks, adding tasks and marking them as done, as well as deleting, editing and vizualizing the items in more detail.
+Desenvolvido por Matheus Lopes.
 
+Um aplicativo simples da lista de tarefas, onde o usuário pode acompanhar suas tarefas diárias, adicionando tarefas e marcando-as como feitas, além de excluir, editar e visualizar os itens com mais detalhes.
 
-## Technologies used
-   - ReactJS;
-   - TypeScript;
-   - ViteJS;
-   - CSS Modules;
+## Tecnologias utilizadas
 
-## Functionalities
-Opening the aplication for the first time will show you a empty list with a blank *"NEW TASK"* field where you can type your first task. To start, type something on that field.
+- ReactJS;
+- TypeScript;
+- ViteJS;
+- CSS Modules;
 
----
+## Features
 
-### Once you added your first task, there are 4 main actions to take:
- -  **Mark it as done:**
-    - Clicking the **green checkmark** icon will mark the task as done, moving it from the *"TO-DO"* field to the *"DONE"* field. Clicking on the **green arrow** will move it back to *"TO-DO"*.
-
- -  **Delete it:**
-    - Clicking the **red trashcan** icon will open a confirmation modal asking if you want to delete the task: Click on the checkmark button to confirm and delete.
-      - Be aware that this action **can't** be undone and if you delete the wrong task you must add a new one using the *"NEW TASK"* field.
-
- -  **Open it:**
-      - Clicking the **yellow eye** icon will open a modal for visualization, where you can see the entire item text. Clicking the X mark on the top-right corner closes the modal.
-      
- -  **Edit it:**
-      - Clicking the **blue pencil** icon will show a field over the item's task, where you can type to edit it. Pressing Enter submit's the new text and saves the edited item. You **can't** edit tasks when they are on the *"DONE"* field.
-
-**Important:**
- - After some items are added to either the *"TO-DO"* or *"DONE"* fields, a scrollbar will appear and the older items can be viewed by scrolling it down.
+Abrir o aplicativo pela primeira vez mostrará uma lista vazia com um campo em branco *"NOVA TAREFA"*, onde você pode digitar sua primeira tarefa. Para começar, digite algo nesse campo.
 
 ---
 
-## Installation and execution
-To install the app, follow this simple 3-step guide:
-   
-1. First choose the folder where you want to install it;
-2. Once you chose a folder, open a bash terminal and type the following commands:
-   
-   1. Clone the git repository:
+### Depois de adicionar sua primeira tarefa, há 4 ações principais a serem executadas
+
+- **Concluir tarefa:**
+-Clique no ícone de **check verde** para marcar a tarefa como concluída, passando dela de *"A FAZER"* para *"CONCLUÍDAS"*. Clique na **seta verde** para mover a tarefa de volta para *"A FAZER"*.
+
+- **Deletar:**
+-Clique no ícone de **lata de lixo vermelho** para deletar uma tarefa. Essa ação abrirá um modal de confirmação perguntando se você deseja excluir a tarefa, clique no botão de check para confirmar e excluir.
+   -Esteja ciente de que essa ação **não pode** ser desfeita e, se você excluir a tarefa errada, deverá adicioná-la novamente usando o campo de *"NOVA TAREFA"*.
+
+- **Ver detalhes:**
+-Clique no ícone de **olho amarelo** para abrir a tarefa, onde você pode ver o texto inteiro do item. Clicar no X no canto superior direito fecha o modal.
+
+- **Editar:**
+-Clique no ícone de **lápis azul** para tornar a tarefa editável. Pressione Enter para salvar o item editado. Você **não pode** editar tarefas quando elas estão no campo de *"CONCLUÍDAS"*.
+
+---
+
+## Instalação e execução
+
+Para instalar e executar o app, siga estes passos:
+
+1. Primeiro, escolha a pasta onde deseja instalá-lo;
+2. Depois de escolher uma pasta, abra o terminal e digite os seguintes comandos:
+
+   1. Clone o repositório Git:
 
       `git clone https://github.com/Ltheus/todo-app.git`
-   
-   2. Acess the aplication's directory: 
+
+   2. Acesse o diretório da aplicação:
 
       `cd todo-app`
-   
-   3. Installing **NodeJS**'s\* dependencys, using **npm**\*:
+
+   3. Instale as dependências do **NodeJS**\*, utilizando o **npm**\*:
 
       `npm install`
 
-   4. Running the aplication:
+   4. Execute a aplicação utlizando:
 
       `npm run dev`
 
-3. After running it, click the link that appears on the terminal (E. g.: "http://localhost:5173/").
- 
- <sup>\* In case you don't have NodeJS installed, click [here](https://nodejs.org/en/download/current) and install the LTS release.</sup>
- 
- <sup>\** In case you don't have npm installed, click [here](https://www.npmjs.com/package/npm) and follow the steps to install it.
+3. Após executá-lo, clique no link que aparecerá no terminal (E. g.: "<http://localhost:5173/>").
+
+ <sup>\* Caso você não possua o NodeJS instalado, clique [aqui](https://nodejs.org/en/download/current) e instale a versão LTS.</sup>
+
+ <sup>\** Caso você não possua o npm instalado, clique [aqui](https://www.npmjs.com/package/npm) e o instale seguindo os passos.
 </sup>
 
-<sup> \*** This aplication was developed with study purposes and is **not** recommended for professional use.</sup>
+<sup> \*** Essa aplicação foi desenvolvida com propósito de estudo e **não** é recomendada para uso profissional.</sup>
