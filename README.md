@@ -20,17 +20,17 @@ Abrir o aplicativo pela primeira vez mostrará uma lista vazia com um campo em b
 ### Depois de adicionar sua primeira tarefa, há 4 ações principais a serem executadas
 
 - **Concluir tarefa:**
--Clique no ícone de **check verde** para marcar a tarefa como concluída, passando dela de *"A FAZER"* para *"CONCLUÍDAS"*. Clique na **seta verde** para mover a tarefa de volta para *"A FAZER"*.
+   -Clique no ícone de **check verde** para marcar a tarefa como concluída, passando dela de *"A FAZER"* para *"CONCLUÍDAS"*. Clique na **seta verde** para mover a tarefa de volta para *"A FAZER"*.
 
 - **Deletar:**
--Clique no ícone de **lata de lixo vermelho** para deletar uma tarefa. Essa ação abrirá um modal de confirmação perguntando se você deseja excluir a tarefa, clique no botão de check para confirmar e excluir.
+   -Clique no ícone de **lata de lixo vermelho** para deletar uma tarefa. Essa ação abrirá um modal de confirmação perguntando se você deseja excluir a tarefa, clique no botão de check para confirmar e excluir.
    -Esteja ciente de que essa ação **não pode** ser desfeita e, se você excluir a tarefa errada, deverá adicioná-la novamente usando o campo de *"NOVA TAREFA"*.
 
 - **Ver detalhes:**
--Clique no ícone de **olho amarelo** para abrir a tarefa, onde você pode ver o texto inteiro do item. Clicar no X no canto superior direito fecha o modal.
+   -Clique no ícone de **olho amarelo** para abrir a tarefa, onde você pode ver o texto inteiro do item. Clicar no X no canto superior direito fecha o modal.
 
 - **Editar:**
--Clique no ícone de **lápis azul** para tornar a tarefa editável. Pressione Enter para salvar o item editado. Você **não pode** editar tarefas quando elas estão no campo de *"CONCLUÍDAS"*.
+   -Clique no ícone de **lápis azul** para tornar a tarefa editável. Pressione Enter para salvar o item editado. Você **não pode** editar tarefas quando elas estão no campo de *"CONCLUÍDAS"*.
 
 ---
 
@@ -59,9 +59,8 @@ Para instalar e executar o app, siga estes passos:
 
 3. Após executá-lo, clique no link que aparecerá no terminal (E. g.: "<http://localhost:5173/>").
 
- <sup>\* Caso você não possua o NodeJS instalado, clique [aqui](https://nodejs.org/en/download/current) e instale a versão LTS.</sup>
+<sup>\* Caso você não possua o NodeJS instalado, clique [aqui](https://nodejs.org/en/download/current) e instale a versão LTS.</sup>
 
- <sup>\** Caso você não possua o npm instalado, clique [aqui](https://www.npmjs.com/package/npm) e o instale seguindo os passos.
-</sup>
+<sup>\** Caso você não possua o npm instalado, clique [aqui](https://www.npmjs.com/package/npm) e o instale seguindo os passos. </sup>
 
 <sup> \*** Essa aplicação foi desenvolvida com propósito de estudo e **não** é recomendada para uso profissional.</sup>
